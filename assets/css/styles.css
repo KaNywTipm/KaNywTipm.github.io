@@ -1,12 +1,12 @@
-    /*====== Google fonts ======*/
+/*====== Google fonts ======*/
 @import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Montserrat+Alternates:wght@400;500;600&display=swap');
 
-    /*====== Variables ======*/
+/*====== Variables ======*/
 :root {
     --hue: 358;
     --first-color: hsl(var(--hue), 80%, 49%);
-    --first-coler-alt: hsl(var(--hue), 76%, 45%);
-    --wite-color: hsl(0, 0%, 98%);
+    --first-color-alt: hsl(var(--hue), 76%, 45%);
+    --white-color: hsl(0, 0%, 98%);
     --black-color: hsl(0, 0%, 2%);
     --text-color: hsl(var(--hue), 2%, 66%);
     --body-color: hsl(var(--hue), 100%, 1%);
@@ -16,7 +16,7 @@
             hsl(var(--hue), 80%, 48%) 140deg,
             hsl(var(--hue), 80%, 20%) 360deg);
 
-    /*====== Font&Yypgraphy ======*/
+    /*====== Font & Typography ======*/
     --body-font: "Montserrat Alternates", sans-serif;
     --second-font: "Grechen Fuemen", cursive;
     --biggest-font-size: 2.5rem;
@@ -31,20 +31,21 @@
     --font-regular: 400;
     --font-medium: 500;
     --font-bold: 600;
+    --font-semi-bold: 500;
 
     /*====== Z index ======*/
     --z-tooltip: 10;
     --z-fixed: 100;
 
     /*====== Responsive ======*/
-@media screen and (max-width: 1168px) {
-    --biggest-font-size: 3.5rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
+    @media screen and (max-width: 1168px) {
+        --biggest-font-size: 3.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
     }
 }
 
@@ -79,7 +80,10 @@ textarea {
     outline: none;
 }
 
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
     color: var(--white-color);
     font-weight: var(--font-semi-bold);
 }
@@ -93,18 +97,18 @@ a {
 }
 
 img {
-    display:block;
+    display: block;
     max-width: 100%;
     height: auto;
 }
 
-/*====== Reusable css class ======*/
+/*====== Reusable CSS Classes ======*/
 .container {
     max-width: 1168px;
     margin-inline: 1.5rem;
 }
 
-.drid {
+.grid {
     display: grid;
     gap: 1.5rem;
 }
@@ -122,3 +126,43 @@ img {
 .main {
     overflow: hidden;
 }
+
+/*====== Navbar ======*/
+.nav {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    background-color: hsla(0, 0%, 98%, 0.1);
+    width: 88%;
+    margin-inline: auto;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    z-index: var(--z-fixed);
+}
+
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__link {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: transparent;
+    color: var(--white-color);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: background-color .6s;
+}
+
+/* Active link */
+/* Add styles for active links here */
+
+/*====== Home Section ======*/
+/* Add styles for home section here */
