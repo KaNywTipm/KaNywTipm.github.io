@@ -361,12 +361,78 @@ img {
     background-color: var(--first-color-alt);
 }
 
-
-
 /*====== Projects ======*/
+.projects__card{
+    background-color: var(--container-color);
+    padding: 1.5rem;
+    border-radius: 2rem;
+}
+.projects__image{
+    display: block;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
 
+.projects__img{
+    transition: transform .4s;
+}
 
+.projects__name{
+    font-size: var(--h3-font-size);
+    margin-bottom: .5rem;
+}
 
+.projects__description{
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.projects__skills{
+    width: 1rem;
+    transition: transform .4s;
+}
+
+.projects__skills:hover{
+    transform: translateY(-.35rem);
+}
+
+.projects__skill{
+    width: max-content;
+    height: 34px;
+    background-color: var(--black-color);
+    padding-inline: .75rem;
+    display: flex;
+    align-items: center;
+    column-gap: .75rem;
+    border-radius: 4rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project__button{
+    color: var(--white-color);
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    transition: color .4s;
+}
+
+.project__button i{
+    font-size: 1.5 rem;
+}
+
+.project__button span{
+    font-weight: var(--font-medium);
+}
+
+.project__button:hover{
+    color: var(--text-color);
+}
+
+.projects__card:hover .projects__img{
+    transform: scale(1.2);
+}
 /*====== Education ======*/
 
 
