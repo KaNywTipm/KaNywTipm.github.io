@@ -434,9 +434,54 @@ img {
     transform: scale(1.2);
 }
 /*====== Education ======*/
+.education__container{
+    row-gap: 2rem;
+}
 
+.education__card{
+    display: grid;
+    row-gap: 1rem;
+}
+
+.education__name{
+    font-size: var(--h2-font-size);
+}
+
+.education__data{
+    background-color: var(--container-color);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.education__level{
+    font-size: var(--h3-font-size);
+    margin-bottom: .5rem;
+}
+
+.education__date{
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: 1rem;
+}
+
+.education__description{
+    color: var(--text-color);
+}
 
 /*====== Contact ======*/
 
 
 /*====== Footer ======*/
+
+
+/*====== Scroll Bar ======*/
+
+
+/*====== Scroll Up ======*/
+
+
+/* Show Scroll Up */
+
+
+/*====== Breakpoints ======*/
+/* For small devices */
