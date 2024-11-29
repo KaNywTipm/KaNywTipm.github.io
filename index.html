@@ -173,7 +173,8 @@
                             <img src="assets/img/github.png" alt="image" class="projects__skills">
                         </div>
 
-                        <a href="https://github.com/66025997/MIXIT" target="_blank" rel="noopener" class="project__button">
+                        <a href="https://github.com/66025997/MIXIT" target="_blank" rel="noopener"
+                            class="project__button">
                             <i class="ri-links-line"></i>
                             <span>Visit Project</span>
                         </a>
@@ -223,7 +224,8 @@
                             <img src="assets/img/github.png" alt="image" class="projects__skills">
                         </div>
 
-                        <a href="https://github.com/66025997/ATBank" target="_blank" rel="noopener" class="project__button">
+                        <a href="https://github.com/66025997/ATBank" target="_blank" rel="noopener"
+                            class="project__button">
                             <i class="ri-links-line"></i>
                             <span>Visit Project</span>
                         </a>
@@ -246,7 +248,8 @@
                         <h3 class="education__level">Bachelor's degree</h3>
                         <span class="education__date">2022-current</span>
                         <p class="education__description">
-                        Studying in the software engineering field, related to web application development, UX/UI design, etc.
+                            Studying in the software engineering field, related to web application development, UX/UI
+                            design, etc.
                         </p>
                     </div>
                 </article>
@@ -258,7 +261,8 @@
                         <h3 class="education__level">High school</h3>
                         <span class="education__date">2019-2022</span>
                         <p class="education__description">
-                        The class is in the Science and Mathematics stream, studying Biology, Chemistry, Physics, etc.
+                            The class is in the Science and Mathematics stream, studying Biology, Chemistry, Physics,
+                            etc.
                         </p>
                     </div>
                 </article>
@@ -270,7 +274,7 @@
                         <h3 class="education__level">Junior high school</h3>
                         <span class="education__date">2016-2019</span>
                         <p class="education__description">
-                        General basic subjects such as Science, Mathematics, English, Social studies, etc.
+                            General basic subjects such as Science, Mathematics, English, Social studies, etc.
                         </p>
                     </div>
                 </article>
@@ -279,16 +283,37 @@
         </section>
 
         <!--========Contact========-->
-        <section class="contact service">
+        <section class="contact">
+            <h2 class="section__title">CONTACT ME</h2>
 
+            <div class="contact__container container grid">
+                <form action="" class="contact__form grid" id="contact-form">
+                    <div class="contact__group grid">
+                        <input type="text" name="user_name" placeholder="Name" required class="contact__input">
+                        <input type="email" name="user_email" placeholder="Email" required class="contact__input">
+                    </div>
+
+                    <textarea name="user_message" placeholder="Message" class="contact__input contact__area"></textarea>
+
+                    <button type="submit" class="button contact__button">Send Message</button>
+                    <div id="contact-message"></div>
+                </form>
+            </div>
         </section>
-
     </main>
 
     <!--========Footer========-->
-    <footer class="footer">
 
-    </footer>
+    <!--========Scroll up========-->
+
+    <!--========Scrollreveal========-->
+    <script src=""></script>
+
+    <!--========Email JS========--> 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!--========Mainjs========-->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
