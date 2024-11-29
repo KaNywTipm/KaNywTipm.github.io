@@ -30,7 +30,6 @@
     /*====== Font weight ======*/
     --font-regular: 400;
     --font-medium: 500;
-    --font-bold: 600;
     --font-semi-bold: 500;
 
     /*====== Z index ======*/
@@ -38,7 +37,10 @@
     --z-fixed: 100;
 
     /*====== Responsive ======*/
-    @media screen and (max-width: 1168px) {
+}
+
+@media screen and (max-width: 1168px) {
+    :root {
         --biggest-font-size: 3.5rem;
         --h1-font-size: 2.25rem;
         --h2-font-size: 1.5rem;
@@ -80,10 +82,7 @@ textarea {
     outline: none;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1,h2,h3,h4 {
     color: var(--white-color);
     font-weight: var(--font-semi-bold);
 }
@@ -117,7 +116,7 @@ img {
     padding-block: 2rem 3rem;
 }
 
-.section-title {
+.section__title {
     font-size: var(--h2-font-size);
     text-align: center;
     margin-bottom: 2rem;
