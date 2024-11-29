@@ -468,7 +468,47 @@ img {
 }
 
 /*====== Contact ======*/
+.contact__group,
+.contact__form{
+    gap: 1rem;
+}
 
+.cotact__form{
+    position: relative;
+}
+
+.contact__input{
+    background-color: var(--container-color);
+    padding: 1.25rem;
+    border-radius: 4rem;
+    color: var(--white-color);
+}
+
+.contact__input::placeholder {
+    color: var(--text-color);
+}
+
+.contact__input:autofill {
+    transition: background-color 6000s, color 6000s;
+}
+
+.contact__area {
+    height: 10rem;
+    border-radius: 1.5rem;
+    resize: none;
+}
+
+.contact__button {
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+.contact__message {
+    position: absolute;
+    bottom: 4.5rem;
+    left: 0;
+    font-size: var(--smaller-font-size);
+}
 
 /*====== Footer ======*/
 
