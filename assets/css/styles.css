@@ -1,13 +1,13 @@
-/*====== Google fonts ======*/
-@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Montserrat+Alternates:wght@400;500;600&display=swap');
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Montserrat+Alternates:wght@400;500;600&display=swap");
 
-/*====== Variables ======*/
+/*=============== VARIABLES CSS ===============*/
 :root {
-    --hue: 358;
+    --hue: 228;
     --first-color: hsl(var(--hue), 80%, 49%);
     --first-color-alt: hsl(var(--hue), 76%, 45%);
     --white-color: hsl(0, 0%, 98%);
-    --black-color: hsl(0, 0%, 2%);
+    --black-color: hsl(0, 0%, 1%);
     --text-color: hsl(var(--hue), 2%, 66%);
     --body-color: hsl(var(--hue), 100%, 1%);
     --container-color: hsl(var(--hue), 2%, 10%);
@@ -16,7 +16,7 @@
             hsl(var(--hue), 80%, 48%) 140deg,
             hsl(var(--hue), 80%, 20%) 360deg);
 
-    /*====== Font & Typography ======*/
+    /*========== Font and typography ==========*/
     --body-font: "Montserrat Alternates", sans-serif;
     --second-font: "Grechen Fuemen", cursive;
     --biggest-font-size: 2.5rem;
@@ -27,19 +27,18 @@
     --small-font-size: .813rem;
     --smaller-font-size: .75rem;
 
-    /*====== Font weight ======*/
+    /*========== Font weight ==========*/
     --font-regular: 400;
     --font-medium: 500;
-    --font-semi-bold: 500;
+    --font-semi-bold: 600;
 
-    /*====== Z index ======*/
+    /*========== z index ==========*/
     --z-tooltip: 10;
     --z-fixed: 100;
-
-    /*====== Responsive ======*/
 }
 
-@media screen and (max-width: 1168px) {
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1168px) {
     :root {
         --biggest-font-size: 3.5rem;
         --h1-font-size: 2.25rem;
@@ -51,7 +50,7 @@
     }
 }
 
-/*====== Base ======*/
+/*=============== BASE ===============*/
 * {
     box-sizing: border-box;
     padding: 0;
@@ -82,7 +81,10 @@ textarea {
     outline: none;
 }
 
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
     color: var(--white-color);
     font-weight: var(--font-semi-bold);
 }
@@ -101,7 +103,7 @@ img {
     height: auto;
 }
 
-/*====== Reusable CSS Classes ======*/
+/*=============== REUSABLE CSS CLASSES ===============*/
 .container {
     max-width: 1168px;
     margin-inline: 1.5rem;
@@ -126,17 +128,17 @@ img {
     overflow: hidden;
 }
 
-/*====== Navbar ======*/
+/*=============== NAV ===============*/
 .nav {
     position: fixed;
     bottom: 1.5rem;
     left: 0;
     right: 0;
-    background-color: hsla(0, 0%, 98%, 0.1);
+    background-color: hsla(0, 0%, 98%, .1);
     width: 88%;
     margin-inline: auto;
-    -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 1rem 2rem;
     border-radius: 4rem;
     z-index: var(--z-fixed);
@@ -161,12 +163,12 @@ img {
 }
 
 /* Active link */
-.active-link{
+.active-link {
     background-color: var(--first-color);
 }
 
-/*====== Home ======*/
-/*PERFIL*/
+/*=============== HOME ===============*/
+/*===== PERFIL =====*/
 .perfil {
     position: relative;
     background: var(--conic-gradient);
@@ -178,7 +180,7 @@ img {
 }
 
 .perfil__img {
-    width: 410px;
+    width: 250px;
     position: absolute;
     justify-self: center;
     align-self: flex-end;
@@ -186,31 +188,30 @@ img {
 
 .perfil__data {
     align-self: flex-end;
-    background-color: hsla(0, 0%, 1%, 0.1);
-    -webkit-backdrop-filter: blur(16px);
+    background-color: hsla(0, 0%, 1%, .1);
     backdrop-filter: blur(16px);
-    padding: 0.5rem 1rem;
+    -webkit-backdrop-filter: blur(16px);
+    padding: 1.5rem 1rem;
     border-radius: 1.5rem;
-    border: 2px solid hsla(0, 0%, 100%, 0.5);
+    border: 2px solid hsla(0, 0%, 100%, .5);
 }
 
 .perfil__name {
-    font: var(--font-regular) var(--h1-font-size) var(--second-font);
+    font: var(--font-regular) var(--biggest-font-size) var(--second-font);
     margin-bottom: 1rem;
 }
 
 .perfil__buttons {
     display: grid;
-    column-gap: 0.5rem;
+    column-gap: .5rem;
     grid-template-columns: repeat(2, 1fr);
 }
 
-.perfil__buttons {
-    padding: 0.75rem 0rem;
+.perfil__buttons .button {
+    padding: .75rem 0;
 }
 
-
-/*INFO*/
+/*===== INFO =====*/
 .info,
 .about,
 .skills {
@@ -234,20 +235,20 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    column-gap: 0.5rem;
+    column-gap: .5rem;
 }
 
 .info__image {
     background: var(--conic-gradient);
-    height: 200px;
+    height: 180px;
     border-radius: 2rem;
     display: grid;
     margin-block: 1.5rem;
     overflow: hidden;
 }
 
-.info__image img {
-    width: 330px;
+.info__img {
+    width: 140px;
     justify-self: center;
     align-self: flex-end;
 }
@@ -261,7 +262,7 @@ img {
     width: 100%;
 }
 
-/*ABOUT*/
+/*===== ABOUT =====*/
 .about__name {
     font-size: var(--normal-font-size);
     font-weight: var(--font-regular);
@@ -275,7 +276,7 @@ img {
     margin-block: 2rem;
 }
 
-.about__link{
+.about__link {
     width: 2.5rem;
     height: 2.5rem;
     background-color: var(--white-color);
@@ -284,7 +285,7 @@ img {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    transition:background-color .4s, color .4s;
+    transition: background-color .4s, color .4s;
 }
 
 .about__link:hover {
@@ -292,7 +293,7 @@ img {
     color: var(--white-color);
 }
 
-.about__image{
+.about__image {
     background: var(--conic-gradient);
     height: 180px;
     border-radius: 2rem;
@@ -301,9 +302,9 @@ img {
 }
 
 .about__img {
-    width: 300px;
+    width: 250px;
     justify-self: center;
-    align-self: flex-end;
+    transform: translateY(-2.5rem);
 }
 
 .about__note {
@@ -311,25 +312,25 @@ img {
     margin-block: 1rem 2rem;
 }
 
-.about__button{
+.about .button {
     width: 100%;
 }
 
-/*SKILLS*/
-.skills__title{
+/*===== SKILLS =====*/
+.skills__title {
     font-size: var(--h2-font-size);
 }
 
-.skills__item{
-    width: 2rem;
+.skills__item {
+    width: 1.5rem;
     transition: transform .4s;
 }
 
-.skills__item:hover{
-    transform: translateY(-.35rem);
+.skills__item:hover {
+    transform: translateY(-.25rem);
 }
 
-.skills__items{
+.skills__items {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -337,12 +338,11 @@ img {
     margin-block: 1.5rem;
 }
 
-.skills__description{
+.skills__description {
     font-size: var(--small-font-size);
-    margin-bottom: 2rem;
 }
 
-/*====== Button ======*/
+/*=============== BUTTON ===============*/
 .button {
     display: inline-flex;
     justify-content: center;
@@ -351,7 +351,7 @@ img {
     font-weight: var(--font-semi-bold);
     padding: 1.25rem 2.5rem;
     border-radius: 4rem;
-    transition: background-color 0.4s;
+    transition: background-color .4s;
 }
 
 .button__black {
@@ -362,43 +362,44 @@ img {
     background-color: var(--first-color-alt);
 }
 
-/*====== Projects ======*/
-.projects__card{
+/*=============== PROJECTS ===============*/
+.projects__card {
     background-color: var(--container-color);
     padding: 1.5rem;
     border-radius: 2rem;
 }
-.projects__image{
+
+.projects__image {
     display: block;
     overflow: hidden;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
 }
 
-.projects__img{
+.projects__img {
     transition: transform .4s;
 }
 
-.projects__name{
+.projects__name {
     font-size: var(--h3-font-size);
     margin-bottom: .5rem;
 }
 
-.projects__description{
+.projects__description {
     color: var(--text-color);
     margin-bottom: 1.5rem;
 }
 
-.projects__skills{
+.projects__skills {
     width: 1rem;
     transition: transform .4s;
 }
 
-.projects__skills:hover{
+.projects__skills:hover {
     transform: translateY(-.35rem);
 }
 
-.projects__skill{
+.projects__skill {
     width: max-content;
     height: 34px;
     background-color: var(--black-color);
@@ -411,7 +412,7 @@ img {
     margin-bottom: 1.5rem;
 }
 
-.project__button{
+.project__button {
     color: var(--white-color);
     display: inline-flex;
     align-items: center;
@@ -419,67 +420,68 @@ img {
     transition: color .4s;
 }
 
-.project__button i{
+.project__button i {
     font-size: 1.5 rem;
 }
 
-.project__button span{
+.project__button span {
     font-weight: var(--font-medium);
 }
 
-.project__button:hover{
+.project__button:hover {
     color: var(--text-color);
 }
 
-.projects__card:hover .projects__img{
+.projects__card:hover .projects__img {
     transform: scale(1.2);
 }
+
 /*====== Education ======*/
-.education__container{
+.education__container {
     row-gap: 2rem;
 }
 
-.education__card{
+.education__card {
     display: grid;
     row-gap: 1rem;
 }
 
-.education__name{
+.education__name {
     font-size: var(--h2-font-size);
 }
 
-.education__data{
+.education__data {
     background-color: var(--container-color);
     padding: 1.5rem;
     border-radius: 1.5rem;
 }
 
-.education__level{
+.education__level {
     font-size: var(--h3-font-size);
     margin-bottom: .5rem;
 }
 
-.education__date{
+.education__date {
     display: block;
     font-size: var(--small-font-size);
     margin-bottom: 1rem;
 }
 
-.education__description{
+.education__description {
     color: var(--text-color);
 }
 
-/*====== Contact ======*/
+/*=============== CONTACT ===============*/
 .contact__group,
-.contact__form{
+.contact__form {
     gap: 1rem;
 }
 
-.cotact__form{
+.contact__form {
     position: relative;
 }
 
-.contact__input{
+.contact__input {
     background-color: var(--container-color);
     padding: 1.25rem;
     border-radius: 4rem;
@@ -507,65 +509,65 @@ img {
 
 .contact__message {
     position: absolute;
-    bottom: 4.5rem;
     left: 0;
+    bottom: 4.5rem;
     font-size: var(--smaller-font-size);
 }
 
-/*====== Footer ======*/
-.footer{
+/*=============== FOOTER ===============*/
+.footer {
     padding-block: 2rem 8rem;
 }
 
-.footer__container{
+.footer__container {
     row-gap: 2.5rem;
 }
 
-.footer__logo{
+.footer__logo {
     color: var(--white-color);
     font: var(--font-regular) var(--biggest-font-size) var(--second-font);
     justify-self: center;
 }
 
-.footer__links{
+.footer__links {
     display: flex;
     justify-content: center;
     column-gap: 2rem;
 }
 
-.footer__link{
+.footer__link {
     color: var(--white-color);
     transition: color .4s;
 }
 
-.footer__link:hover{
+.footer__link:hover {
     color: var(--text-color);
 }
 
-.footer__social{
+.footer__social {
     display: flex;
     justify-content: center;
     column-gap: 1.5rem;
 }
 
-.footer__social-link{
+.footer__social-link {
     width: 2.5rem;
     height: 2.5rem;
     background-color: var(--first-color);
-    font-size: 1.5rem;
     color: var(--white-color);
-    transition: bachground-color .4s, color .4s;
+    font-size: 1.5rem;
     border-radius: 50%;
     display: grid;
     place-items: center;
+    transition: background-color .4s, color .4s;
 }
 
-.footer__social-link:hover{
+.footer__social-link:hover {
     background-color: var(--white-color);
     color: var(--black-color);
 }
 
-.footer__copy{
+.footer__copy {
     display: block;
     margin-top: 4.5rem;
     text-align: center;
@@ -573,7 +575,7 @@ img {
     color: var(--text-color);
 }
 
-/*====== Scroll Bar ======*/
+/*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
     width: .6rem;
     background-color: hsl(0, 0%, 20%);
@@ -587,18 +589,18 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: hsl(0, 0%, 40%);
-    border-radius: .5rem;
 }
 
-/*====== Scroll Up ======*/
-.scrollup{
+/*=============== SCROLL UP ===============*/
+.scrollup {
     position: fixed;
-    bottom: -50%;
     right: 1rem;
-    background-color: hsl(0, 0%, 98%, .1);
-    color: var(--white-color);
-    padding: 6px;
+    bottom: -50%;
+    background-color: hsla(0, 0%, 98%, .1);
     display: inline-flex;
+    padding: 6px;
+    color: var(--white-color);
+    font-size: 1.25rem;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: .5rem;
@@ -606,20 +608,259 @@ img {
     transition: bottom .4s, transform .4s;
 }
 
-.scrollup:hover{
+.scrollup:hover {
     transform: translateY(-.5rem);
 }
 
 /* Show Scroll Up */
-.show-scroll{
+.show-scroll {
     bottom: 8rem;
 }
 
-/*======== Breakpoints ========*/
+/*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 320px) {
+    .container {
+        margin-inline: 1rem;
+    }
 
+    .nav {
+        padding: 1rem;
+    }
+}
 
 /* For medium devices */
+@media screen and (min-width: 540px) {
+    .nav {
+        width: max-content;
+    }
 
+    .nav__list {
+        column-gap: 1.25rem;
+    }
+
+    .home__container,
+    .projects__container,
+    .services__container,
+    .experience__container,
+    .contact__container {
+        grid-template-columns: 380px;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home__container {
+        grid-template-columns: repeat(2, 350px);
+        align-items: flex-start;
+    }
+
+    .perfil {
+        height: 100%;
+    }
+
+    .projects__container,
+    .services__container {
+        grid-template-columns: repeat(2, 350px);
+    }
+
+    .experience__container {
+        grid-template-columns: initial;
+    }
+
+    .experience__card {
+        grid-template-columns: 320px 380px;
+        align-items: center;
+    }
+
+    .footer__container,
+    .footer__content {
+        grid-template-columns: repeat(2, max-content);
+        align-items: center;
+    }
+
+    .footer__container {
+        justify-content: space-between;
+    }
+
+    .footer__content {
+        column-gap: 4.5rem;
+    }
+
+    .show-scroll {
+        bottom: 3rem;
+    }
+}
 
 /* For large devices */
+@media screen and (min-width: 1200px) {
+    .container {
+        margin-inline: auto;
+    }
+
+    .section {
+        padding-block: 3rem 4rem;
+    }
+
+    .section__title {
+        font-size: var(--h1-font-size);
+        margin-bottom: 4rem;
+    }
+
+    .home__container {
+        grid-template-columns: 280px 560px 280px;
+        align-items: stretch;
+    }
+
+    .perfil {
+        grid-column: 2/3;
+        grid-row: 1/3;
+        padding: 2rem;
+    }
+
+    .perfil__img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+    }
+
+    .perfil__data {
+        width: 370px;
+        padding: 1.5rem;
+        border-radius: 2rem;
+    }
+
+    .info {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .info__name {
+        font-size: var(--h2-font-size);
+    }
+
+    .about {
+        grid-column: 3/4;
+        grid-row: 1/3;
+        align-content: center;
+    }
+
+    .about__image {
+        height: 210px;
+    }
+
+    .about__img {
+        transform: translateY(-1rem);
+    }
+
+    .skills {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .skills__title {
+        font-size: var(--h3-font-size);
+    }
+
+    .projects__container {
+        grid-template-columns: repeat(3, 368px);
+        gap: 2rem;
+    }
+
+    .projects__card {
+        padding-bottom: 2rem;
+    }
+
+    .services__container {
+        grid-template-columns: repeat(3, 368px);
+        gap: 2rem;
+    }
+
+    .services__card {
+        padding-block: 6rem 5rem;
+    }
+
+    .services__icon i {
+        font-size: 3.5rem;
+    }
+
+    .services__circle {
+        width: 4rem;
+        height: 4rem;
+        right: -1.5rem;
+        top: -1.5rem;
+    }
+
+    .experience__container {
+        row-gap: 4rem;
+    }
+
+    .experience__card {
+        grid-template-columns: 350px 510px;
+        column-gap: 8rem;
+    }
+
+    .experience__company {
+        font-size: var(--h1-font-size);
+    }
+
+    .experience__data {
+        padding: 2rem;
+        border-radius: 2rem;
+    }
+
+    .contact__container {
+        grid-template-columns: 620px;
+    }
+
+    .contact__group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact__area {
+        height: 15rem;
+    }
+
+    .contact__button {
+        width: max-content;
+        justify-self: center;
+    }
+
+    .footer {
+        padding-top: 3rem;
+    }
+
+    .footer__links {
+        column-gap: 3rem;
+    }
+
+    .footer__copy {
+        margin-top: 7rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .nav {
+        width: max-content;
+        height: max-content;
+        padding: 2rem 1rem;
+        left: initial;
+        right: 3rem;
+        top: 0;
+        bottom: 0;
+        margin-block: auto;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        row-gap: 1.25rem;
+    }
+
+    .footer {
+        padding-block: 3rem;
+    }
+
+    .scrollup {
+        right: 4rem;
+    }
+}

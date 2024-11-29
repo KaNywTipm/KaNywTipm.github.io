@@ -1,0 +1,241 @@
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px){
+   .container{
+      margin-inline: 1rem;
+   }
+
+   .nav{
+      padding: 1rem;
+   }
+}
+
+/* For medium devices */
+@media screen and (min-width: 540px){
+   .nav{
+      width: max-content;
+      
+      &__list{
+         column-gap: 1.25rem;
+      }
+   }
+
+   .home__container,
+   .projects__container,
+   .services__container,
+   .experience__container,
+   .contact__container{
+      grid-template-columns: 380px;
+      justify-content: center;
+   }
+}
+
+@media screen and (min-width: 768px){
+   .home__container{
+      grid-template-columns: repeat(2, 350px);
+      align-items: flex-start;
+   }
+
+   .perfil{
+      height: 100%;
+   }
+
+   .projects__container,
+   .services__container{
+      grid-template-columns: repeat(2, 350px);
+   }
+
+   .experience{
+      &__container{
+         grid-template-columns: initial;
+      }
+      &__card{
+         grid-template-columns: 320px 380px;
+         align-items: center;
+      }
+   }
+
+   .footer{
+      &__container,
+      &__content{
+         grid-template-columns: repeat(2, max-content);
+         align-items: center;
+      }
+      &__container{
+         justify-content: space-between;
+      }
+      &__content{
+         column-gap: 4.5rem;
+      }
+   }
+
+   .show-scroll{
+      bottom: 3rem;
+   }
+}
+
+/* For large devices */
+@media screen and (min-width: 1200px){
+   .container{
+      margin-inline: auto;
+   }
+
+   .section{
+      padding-block: 3rem 4rem;
+
+      &__title{
+         font-size: var(--h1-font-size);
+         margin-bottom: 4rem;
+      }
+   }
+
+   .home__container{
+      grid-template-columns: 280px 560px 280px;
+      align-items: stretch;
+   }
+
+   .perfil{
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+      padding: 2rem;
+
+      &__img{
+         width: 450px;
+      }
+      &__data{
+         width: 370px;
+         padding: 1.5rem;
+         border-radius: 2rem;
+      }
+   }
+
+   .info{
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+
+      &__name{
+         font-size: var(--h2-font-size);
+      }
+   }
+
+   .about{
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+      align-content: center;
+
+      &__image{
+         height: 210px;
+      }
+      &__img{
+         transform: translateY(-1rem);
+      }
+   }
+
+   .skills{
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+
+      &__title{
+         font-size: var(--h3-font-size);
+      }
+   }
+
+   .projects{
+      &__container{
+         grid-template-columns: repeat(3, 368px);
+         gap: 2rem;
+      }
+      &__card{
+         padding-bottom: 2rem;
+      }
+   }
+
+   .services{
+      &__container{
+         grid-template-columns: repeat(3, 368px);
+         gap: 2rem;
+      }
+      &__card{
+         padding-block: 6rem 5rem;
+      }
+      &__icon i{
+         font-size: 3.5rem;
+      }
+      &__circle{
+         width: 4rem;
+         height: 4rem;
+         right: -1.5rem;
+         top: -1.5rem
+      }
+   }
+
+   .experience{
+      &__container{
+         row-gap: 4rem;
+      }
+      &__card{
+         grid-template-columns: 350px 510px;
+         column-gap: 8rem;
+      }
+      &__company{
+         font-size: var(--h1-font-size);
+      }
+      &__data{
+         padding: 2rem;
+         border-radius: 2rem;
+      }
+   }
+
+   .contact{
+      &__container{
+         grid-template-columns: 620px;
+      }
+      &__group{
+         grid-template-columns: repeat(2, 1fr);
+      }
+      &__area{
+         height: 15rem;
+      }
+      &__button{
+         width: max-content;
+         justify-self: center;
+      }
+   }
+
+   .footer{
+      padding-top: 3rem;
+
+      &__links{
+         column-gap: 3rem;
+      }
+      &__copy{
+         margin-top: 7rem;
+      }
+   }
+}
+
+@media screen and (min-width: 1500px){
+   .nav{
+      width: max-content;
+      height: max-content;
+      padding: 2rem 1rem;
+      left: initial;
+      right: 3rem;
+      top: 0;
+      bottom: 0;
+      margin-block: auto;
+
+      &__list{
+         flex-direction: column;
+         row-gap: 1.25rem;
+      }
+   }
+
+   .footer{
+      padding-block: 3rem;
+   }
+
+   .scrollup{
+      right: 4rem;
+   }
+}

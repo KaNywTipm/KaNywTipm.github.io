@@ -1,0 +1,38 @@
+/*=============== CONTACT ===============*/
+.contact{
+   &__group,
+   &__form{
+      gap: 1rem;
+   }
+   &__form{
+      position: relative;
+   }
+   &__input{
+      background-color: var(--container-color);
+      padding: 1.25rem;
+      border-radius: 4rem;
+      color: var(--white-color);
+
+      &::placeholder{
+         color: var(--text-color);
+      }
+      &:autofill{
+         transition: background-color 6000s, color 6000s;
+      }
+   }
+   &__area{
+      height: 10rem;
+      border-radius: 1.5rem;
+      resize: none;
+   }
+   &__button{
+      margin-top: 1.5rem;
+      cursor: pointer;
+   }
+   &__message{
+      position: absolute;
+      left: 0;
+      bottom: 4.5rem;
+      font-size: var(--smaller-font-size);
+   }
+}
