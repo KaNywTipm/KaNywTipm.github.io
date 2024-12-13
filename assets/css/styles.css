@@ -137,8 +137,8 @@ img {
     background-color: hsla(0, 0%, 98%, .1);
     width: 88%;
     margin-inline: auto;
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     padding: 1rem 2rem;
     border-radius: 4rem;
     z-index: var(--z-fixed);
@@ -189,8 +189,8 @@ img {
 .perfil__data {
     align-self: flex-end;
     background-color: hsla(0, 0%, 1%, .1);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     padding: 1.5rem 1rem;
     border-radius: 1.5rem;
     border: 2px solid hsla(0, 0%, 100%, .5);
@@ -601,8 +601,8 @@ img {
     padding: 6px;
     color: var(--white-color);
     font-size: 1.25rem;
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     border-radius: .5rem;
     z-index: var(--z-tooltip);
     transition: bottom .4s, transform .4s;
