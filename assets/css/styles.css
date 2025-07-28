@@ -248,10 +248,12 @@ img {
 }
 
 .info__img {
-    width: 140px;
+    width: 200px;
     justify-self: center;
-    align-self: flex-end;
+    align-self: center;
+    border-radius: 1rem;
 }
+
 
 .info__description {
     font-size: var(--small-font-size);
