@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Website</title>
+    <title data-i18n="meta.title">Profile Website</title>
 
     <!--========FavIcon========-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -21,24 +21,32 @@
     <nav class="nav">
         <ul class="nav__list">
             <li class="nav__item">
-                <a href="#home" title="Home" class="nav__link active-link">
+                <a href="#home" class="nav__link active-link" data-i18n-attr="title:nav.homeTitle" title="Home">
                     <i class="ri-home-3-line"></i>
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#projects" title="Project" class="nav__link">
+                <a href="#projects" class="nav__link" data-i18n-attr="title:nav.projectTitle" title="Project">
                     <i class="ri-terminal-box-line"></i>
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#education" title="Education" class="nav__link">
+                <a href="#education" class="nav__link" data-i18n-attr="title:nav.educationTitle" title="Education">
                     <i class="ri-graduation-cap-line"></i>
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#contact" title="Contact" class="nav__link">
+                <a href="#contact" class="nav__link" data-i18n-attr="title:nav.contactTitle" title="Contact">
                     <i class="ri-mail-send-line"></i>
                 </a>
+            </li>
+
+            <!-- ปุ่มสลับภาษา -->
+            <li class="nav__item">
+                <button id="lang-toggle" class="nav__link" data-i18n-attr="title:nav.translateTitle"
+                    title="Translate / แปล">
+                    <i class="ri-translate-2"></i>
+                </button>
             </li>
         </ul>
     </nav>
@@ -50,301 +58,303 @@
             <div class="home__container grid">
                 <!--========PERFIL========-->
                 <div class="perfil">
-                    <img src="assets/img/home-perfil-Photoroom.png" alt="image" class="perfil__img">
+                    <img src="assets/img/home-perfil-Photoroom.png" alt="image" class="perfil__img" />
 
                     <div class="perfil__data">
-                        <h1 class="perfil__name">Kanyawee <br> Tipmod</h1>
+                        <h1 class="perfil__name" data-i18n="home.name">Kanyawee <br> Tipmod</h1>
 
                         <div class="perfil__buttons">
-                            <a href="#projects" class="button">Projects</a>
-                            <a href="#education" class="button button__black">Education</a>
+                            <a href="#projects" class="button" data-i18n="home.btnProjects">Projects</a>
+                            <a href="#education" class="button button__black"
+                                data-i18n="home.btnEducation">Education</a>
                         </div>
-
                     </div>
                 </div>
+
                 <!--========INFO========-->
                 <div class="info">
                     <div class="info__data">
                         <div class="info__circle"></div>
-                        <h1 class="info__name">Kanyawee</h1>
+                        <h1 class="info__name" data-i18n="home.shortName">Kanyawee(์Nghin)</h1>
                     </div>
 
                     <div class="info__image">
-                        <img src="assets/img/source.gif" alt="Gif animation" class="info__img">
+                        <img src="assets/img/source.gif" alt="Gif animation" class="info__img" />
                     </div>
 
-                    <p class="info__description">
+                    <p class="info__description" data-i18n="home.tagline">
                         Passionate about creating and designing websites with the best engaging interfaces.
                     </p>
 
-                    <a href="assets/pdf/66025997    นางสาวกัญญาวีร์ ทิพโหมด.pdf" download target="button"
-                        class="button button__black">Download CV</a>
+                    <a href="assets/pdf/66025997    นางสาวกัญญาวีร์ ทิพโหมด.pdf" download target="button"
+                        class="button button__black" data-i18n="home.download">Download CV</a>
                 </div>
+
                 <!--========ABOUT========-->
                 <div class="about">
                     <h2 class="about__name">
-                        Kaywee Tipmod - <b>Student Software Enginearing</b>
+                        <span data-i18n="about.displayName">Kaywee Tipmod</span> -
+                        <b data-i18n="about.role">Student Software Enginearing</b>
                     </h2>
 
-                    <p class="about__description">
+                    <p class="about__description" data-i18n="about.desc">
                         Located in Phayao, Thailand. I am a student at the Faculty of Information Technology, University
                         of Phayao. I am currently studying in the field of Software Engineering.I am also interested in
                         learning new things and developing my skills.
                     </p>
 
                     <div class="about__social">
-                        <a href="https://github.com/KaNywTipm" target="_blank" rel="noopener" title="GitHub Profile"
-                            class="about__link">
+                        <a href="https://github.com/KaNywTipm" target="_blank" rel="noopener" class="about__link"
+                            data-i18n-attr="title:about.githubTitle" title="GitHub Profile">
                             <i class="ri-github-line"></i>
                         </a>
 
                         <a href="https://www.facebook.com/share/1GoAMJG3bM/" target="_blank" rel="noopener"
-                            title="Facebook Profile" class="about__link">
+                            class="about__link" data-i18n-attr="title:about.facebookTitle" title="Facebook Profile">
                             <i class="ri-facebook-line"></i>
                         </a>
 
                         <a href="https://www.instagram.com/nghin_153/profilecard/?igsh=MWJmY3ZuMHIwaWVkbA=="
-                            target="_blank" rel="noopener" title="Instagram Profile" class="about__link">
+                            target="_blank" rel="noopener" class="about__link"
+                            data-i18n-attr="title:about.instagramTitle" title="Instagram Profile">
                             <i class="ri-instagram-line"></i>
                         </a>
                     </div>
 
                     <div class="about__image">
-                        <img src="assets/img/Homepic-Photoroom.png" alt="image" class="about__img">
+                        <img src="assets/img/Homepic-Photoroom.png" alt="image" class="about__img" />
                     </div>
 
-                    <p class="about__note">
-                        She does not write messages on social networks, send me an email and I'll answer you.
+                    <p class="about__note" data-i18n="about.note">
+                        If you are interested, please contact me via my personal email. I will respond as soon as possible.
                     </p>
 
-                    <a href="#contact" class="button about__button">Contact Me</a>
+                    <a href="#contact" class="button about__button" data-i18n="about.contactBtn">Contact Me</a>
                 </div>
 
                 <!--========SKILLS========-->
                 <div class="skills">
-                    <h2 class="skills__title">Skills</h2>
+                    <h2 class="skills__title" data-i18n="skills.title">Skills</h2>
 
                     <div class="skills__items">
-                        <img src="/assets/img/html.png" alt="image" class="skills__item">
-                        <img src="/assets/img/css.png" alt="image" class="skills__item">
-                        <img src="/assets/img/js.png" alt="image" class="skills__item">
-                        <img src="/assets/img/github.png" alt="image" class="skills__item">
-                        <img src="/assets/img/figma.png" alt="image" class="skills__item">
-                        <img src="/assets/img/python.png" alt="image" class="skills__item">
-                        <img src="/assets/img/java.png" alt="image" class="skills__item">
-                        <img src="/assets/img/vue.png" alt="image" class="skills__item">
-                        <img src="/assets/img/react.png" alt="image" class="skills__item">
-                        <img src="/assets/img/typescript.png" alt="image" class="skills__item">
-                        <img src="/assets/img/nextjs.png" alt="image" class="skills__item">
-                        <img src="/assets/img/tailwindcss.png" alt="image" class="skills__item">
+                        <img src="/assets/img/html.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/css.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/js.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/github.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/figma.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/python.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/java.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/vue.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/react.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/typescript.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/nextjs.png" alt="image" class="skills__item" />
+                        <img src="/assets/img/tailwindcss.png" alt="image" class="skills__item" />
                     </div>
 
-                    <p class="skill__description">
+                    <p class="skill__description" data-i18n="skills.note">
                         Visit the project section to see the work done with these web technologies.
                     </p>
                 </div>
-
-
-
             </div>
         </section>
 
         <!--========Project========-->
         <section class="projects secttion" id="projects">
-            <h2 class="section__title">RECENT PROJECTS</h2>
-
+            <h2 class="section__title" data-i18n="projects.title">RECENT PROJECTS</h2>
 
             <div class="projects__container container grid">
+                <!-- Card 1 -->
                 <article class="projects__card">
                     <a href="https://github.com/KaNywTipm/HAMTAROT" target="_blank" rel="noopener"
                         class="projects__image">
-                        <img src="/assets/img/Ham.png" alt="image" class="projects__img">
+                        <img src="/assets/img/Ham.png" alt="image" class="projects__img" />
                     </a>
 
                     <div class="projects__data">
-                        <h3 class="projects__name">HAMTAROT</h3>
-                        <p class="projects__description">
+                        <h3 class="projects__name" data-i18n="proj.hamtarot.name">HAMTAROT</h3>
+                        <p class="projects__description" data-i18n="proj.hamtarot.desc">
                             A project during my first year of study about a website for fortune telling about daily
-                            life, studying, love, finance, and work. It is a simple website that can be used to tell fortunes
+                            life, studying, love, finance, and work. It is a simple website that can be used to tell
+                            fortunes
                             using tarot cards.
                         </p>
                         <div class="projects__skill">
-                            <img src="assets/img/vue.png" alt="image" class="projects__skills">
-                            <img src="assets/img/typescript.png" alt="image" class="projects__skills">
-                            <img src="assets/img/css.png" alt="image" class="projects__skills">
-                            <img src="assets/img/js.png" alt="image" class="projects__skills">
-                            <img src="assets/img/figma.png" alt="image" class="projects__skills">
-                            <img src="assets/img/github.png" alt="image" class="projects__skills">
+                            <img src="assets/img/vue.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/typescript.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/css.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/js.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/figma.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/github.png" alt="image" class="projects__skills" />
                         </div>
 
-
-                        <a href="https://github.com/KaNywTipm/HAMTAROT" target="_blank" rel="noopener" title="HAMTAROT Project"
-                            class="project__button">
-
-                            <a href="https://github.com/KaNywTipm/HAMTAROT" target="_blank" rel="noopener"
-                                class="project__button">
-
-                                <i class="ri-links-line"></i>
-                                <span>Visit Project</span>
-                            </a>
-
+                        <a href="https://github.com/KaNywTipm/HAMTAROT" target="_blank" rel="noopener"
+                            class="project__button" data-i18n-attr="title:proj.visitTitle" title="Visit Project">
+                            <i class="ri-links-line"></i>
+                            <span data-i18n="proj.visit">Visit Project</span>
+                        </a>
                     </div>
                 </article>
 
+                <!-- Card 2 -->
                 <article class="projects__card">
                     <a href="https://github.com/KaNywTipm/MIXIT" target="_blank" rel="noopener" class="projects__image">
-                        <img src="assets/img/mixit.png" alt="image" class="projects__img">
+                        <img src="assets/img/mixit.png" alt="image" class="projects__img" />
                     </a>
 
                     <div class="projects__data">
-                        <h3 class="projects__name">MIXIT</h3>
-                        <p class="projects__description">
+                        <h3 class="projects__name" data-i18n="proj.mixit.name">MIXIT</h3>
+                        <p class="projects__description" data-i18n="proj.mixit.desc">
                             A project during my second year of study about a website that combines games in a community
                             format to talk about games that interest me or ask questions.
                         </p>
                         <div class="projects__skill">
-                            <img src="assets/img/nextjs.png" alt="image" class="projects__skills">
-                            <img src="assets/img/react.png" alt="image" class="projects__skills">
-                            <img src="assets/img/js.png" alt="image" class="projects__skills">
-                            <img src="assets/img/css.png" alt="image" class="projects__skills">
-                            <img src="assets/img/figma.png" alt="image" class="projects__skills">
-                            <img src="assets/img/github.png" alt="image" class="projects__skills">
+                            <img src="assets/img/nextjs.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/react.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/js.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/css.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/figma.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/github.png" alt="image" class="projects__skills" />
                         </div>
 
                         <a href="https://github.com/KaNywTipm/MIXIT" target="_blank" rel="noopener"
-                            class="project__button">
+                            class="project__button" data-i18n-attr="title:proj.visitTitle" title="Visit Project">
                             <i class="ri-links-line"></i>
-                            <span>Visit Project</span>
+                            <span data-i18n="proj.visit">Visit Project</span>
                         </a>
-
                     </div>
                 </article>
 
+                <!-- Card 3 -->
                 <article class="projects__card">
                     <a href="https://github.com/66025997/ATBank" target="_blank" rel="noopener" class="projects__image">
-                        <img src="assets/img/bank.png" alt="image" class="projects__img">
+                        <img src="assets/img/bank.png" alt="image" class="projects__img" />
                     </a>
 
                     <div class="projects__data">
-                        <h3 class="projects__name">ATBANK</h3>
-                        <p class="projects__description">
+                        <h3 class="projects__name" data-i18n="proj.atbank.name">ATBANK</h3>
+                        <p class="projects__description" data-i18n="proj.atbank.desc">
                             Mini project in the second year of study about a website made using Java by Netbean about a
                             rough banking system such as deposits, transfers, etc.
                         </p>
                         <div class="projects__skill">
-                            <img src="assets/img/java.png" alt="image" class="projects__skills">
-                            <img src="assets/img/github.png" alt="image" class="projects__skills">
+                            <img src="assets/img/java.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/github.png" alt="image" class="projects__skills" />
                         </div>
 
                         <a href="https://github.com/66025997/ATBank" target="_blank" rel="noopener"
-                            class="project__button">
+                            class="project__button" data-i18n-attr="title:proj.visitTitle" title="Visit Project">
                             <i class="ri-links-line"></i>
-                            <span>Visit Project</span>
+                            <span data-i18n="proj.visit">Visit Project</span>
                         </a>
-
                     </div>
                 </article>
 
+                <!-- Card 4 -->
                 <article class="projects__card">
-                    <a href="https://github.com/KaNywTipm/School-Dashboard" target="_blank" rel="noopener" class="projects__image">
-                        <img src="assets/img/dashboard.png" alt="image" class="projects__img">
+                    <a href="https://github.com/KaNywTipm/School-Dashboard" target="_blank" rel="noopener"
+                        class="projects__image">
+                        <img src="assets/img/dashboard.png" alt="image" class="projects__img" />
                     </a>
 
                     <div class="projects__data">
-                        <h3 class="projects__name">School-Dashboard</h3>
-                        <p class="projects__description">
-                            Full-stack dashboard web app built using React, TypeScript, Next.js, and PostgreSQL. 
-                            Featured advanced UI/UX, cloud-based media handling, form validation, and secure authentication. 
+                        <h3 class="projects__name" data-i18n="proj.schooldash.name">School-Dashboard</h3>
+                        <p class="projects__description" data-i18n="proj.schooldash.desc">
+                            Full-stack dashboard web app built using React, TypeScript, Next.js, and PostgreSQL.
+                            Featured advanced UI/UX, cloud-based media handling, form validation, and secure
+                            authentication.
                             Designed for real-world demonstration during the university Open House.
                         </p>
                         <div class="projects__skill">
-                            <img src="assets/img/typescript.png" alt="image" class="projects__skills">
-                            <img src="assets/img/nextjs.png" alt="image" class="projects__skills">
-                            <img src="assets/img/react.png" alt="image" class="projects__skills">
-                            <img src="assets/img/figma.png" alt="image" class="projects__skills">
-                            <img src="assets/img/github.png" alt="image" class="projects__skills">
+                            <img src="assets/img/typescript.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/nextjs.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/react.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/figma.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/github.png" alt="image" class="projects__skills" />
                         </div>
 
                         <a href="https://github.com/KaNywTipm/School-Dashboard" target="_blank" rel="noopener"
-                            class="project__button">
+                            class="project__button" data-i18n-attr="title:proj.visitTitle" title="Visit Project">
                             <i class="ri-links-line"></i>
-                            <span>Visit Project</span>
+                            <span data-i18n="proj.visit">Visit Project</span>
                         </a>
-
                     </div>
                 </article>
 
+                <!-- Card 5 -->
                 <article class="projects__card">
-                    <a href="https://github.com/KaNywTipm/karuphan-hospital" target="_blank" rel="noopener" class="projects__image">
-                        <img src="assets/img/damofinal.png" alt="image" class="projects__img">
+                    <a href="https://github.com/KaNywTipm/karuphan-hospital" target="_blank" rel="noopener"
+                        class="projects__image">
+                        <img src="assets/img/damofinal.png" alt="image" class="projects__img" />
                     </a>
 
                     <div class="projects__data">
-                        <h3 class="projects__name">Karuphan-Hospital(Under development)</h3>
-                        <p class="projects__description">
-                            This project is a final-year capstone system developed for the Primary and Holistic Care Unit (PCU) at Kiri Mat Hospital. It aims to streamline the management of hospital assets and inventory with an intuitive interface and a robust backend system.
+                        <h3 class="projects__name" data-i18n="proj.karuphan.name">Karuphan-Hospital(Under development)
+                        </h3>
+                        <p class="projects__description" data-i18n="proj.karuphan.desc">
+                            This project is a final-year capstone system developed for the Primary and Holistic Care
+                            Unit (PCU) at Kiri Mat Hospital. It aims to streamline the management of hospital assets and
+                            inventory with an intuitive interface and a robust backend system.
                         </p>
                         <div class="projects__skill">
-                            <img src="assets/img/nextjs.png" alt="image" class="projects__skills">
-                            <img src="assets/img/typescript.png" alt="image" class="projects__skills">
-                            <img src="assets/img/js.png" alt="image" class="projects__skills">
-                            <img src="assets/img/css.png" alt="image" class="projects__skills">
-                            <img src="assets/img/tailwindcss.png" alt="image" class="projects__skills">
-                            <img src="assets/img/github.png" alt="image" class="projects__skills">
+                            <img src="assets/img/nextjs.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/typescript.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/react.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/js.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/tailwindcss.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/github.png" alt="image" class="projects__skills" />
                         </div>
 
                         <a href="https://github.com/KaNywTipm/karuphan-hospital" target="_blank" rel="noopener"
-                            class="project__button">
+                            class="project__button" data-i18n-attr="title:proj.visitTitle" title="Visit Project">
                             <i class="ri-links-line"></i>
-                            <span>Visit Project</span>
+                            <span data-i18n="proj.visit">Visit Project</span>
                         </a>
-
                     </div>
                 </article>
 
-
+                <!-- Card 6 -->
                 <article class="projects__card">
-                    <a href="https://github.com/KaNywTipm/KaNywTipm.github.io" target="_blank" rel="noopener" class="projects__image">
-                        <img src="assets/img/profileweb.png" alt="image" class="projects__img">
+                    <a href="https://github.com/KaNywTipm/KaNywTipm.github.io" target="_blank" rel="noopener"
+                        class="projects__image">
+                        <img src="assets/img/profileweb.png" alt="image" class="projects__img" />
                     </a>
 
                     <div class="projects__data">
-                        <h3 class="projects__name">Profile Website(Keep updating)</h3>
-                        <p class="projects__description">
-                            This portfolio website is a personal project created to showcase the various software development projects I have worked on during my academic journey. Built entirely with HTML, CSS, and JavaScript, it demonstrates my ability to develop clean, responsive, and interactive web interfaces.
+                        <h3 class="projects__name" data-i18n="proj.profile.name">Profile Website(Keep updating)</h3>
+                        <p class="projects__description" data-i18n="proj.profile.desc">
+                            This portfolio website is a personal project created to showcase the various software
+                            development projects I have worked on during my academic journey. Built entirely with HTML,
+                            CSS, and JavaScript, it demonstrates my ability to develop clean, responsive, and
+                            interactive web interfaces.
                         </p>
                         <div class="projects__skill">
-                            <img src="assets/img/html.png" alt="image" class="projects__skills">
-                            <img src="assets/img/css.png" alt="image" class="projects__skills">
-                            <img src="assets/img/js.png" alt="image" class="projects__skills">
-                            <img src="assets/img/github.png" alt="image" class="projects__skills">
+                            <img src="assets/img/html.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/css.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/js.png" alt="image" class="projects__skills" />
+                            <img src="assets/img/github.png" alt="image" class="projects__skills" />
                         </div>
 
                         <a href="https://github.com/KaNywTipm/KaNywTipm.github.io" target="_blank" rel="noopener"
-                            class="project__button">
+                            class="project__button" data-i18n-attr="title:proj.visitTitle" title="Visit Project">
                             <i class="ri-links-line"></i>
-                            <span>Visit Project</span>
+                            <span data-i18n="proj.visit">Visit Project</span>
                         </a>
-
                     </div>
                 </article>
-
             </div>
         </section>
 
         <!--========Education========-->
         <section class="education section" id="education">
-            <h2 class="section__title">EDUCATION</h2>
+            <h2 class="section__title" data-i18n="education.title">EDUCATION</h2>
 
             <div class="education__container container grid">
-
                 <article class="education__card">
-                    <h2 class="education__name">University of Phayao</h2>
-
+                    <h2 class="education__name" data-i18n="edu.up.name">University of Phayao</h2>
                     <div class="education__data">
-                        <h3 class="education__level">Bachelor's degree</h3>
-                        <span class="education__date">2022-current</span>
-                        <p class="education__description">
+                        <h3 class="education__level" data-i18n="edu.up.level">Bachelor's degree</h3>
+                        <span class="education__date" data-i18n="edu.up.date">2022-current</span>
+                        <p class="education__description" data-i18n="edu.up.desc">
                             Studying in the software engineering field, related to web application development, UX/UI
                             design, etc.
                         </p>
@@ -352,12 +362,11 @@
                 </article>
 
                 <article class="education__card">
-                    <h2 class="education__name">Sukhothai Wittayakom</h2>
-
+                    <h2 class="education__name" data-i18n="edu.skw.name1">Sukhothai Wittayakom</h2>
                     <div class="education__data">
-                        <h3 class="education__level">High school</h3>
-                        <span class="education__date">2019-2022</span>
-                        <p class="education__description">
+                        <h3 class="education__level" data-i18n="edu.skw.level1">High school</h3>
+                        <span class="education__date" data-i18n="edu.skw.date1">2019-2022</span>
+                        <p class="education__description" data-i18n="edu.skw.desc1">
                             The class is in the Science and Mathematics stream, studying Biology, Chemistry, Physics,
                             etc.
                         </p>
@@ -365,35 +374,35 @@
                 </article>
 
                 <article class="education__card">
-                    <h2 class="education__name">Sukhothai Wittayakom</h2>
-
+                    <h2 class="education__name" data-i18n="edu.skw.name2">Sukhothai Wittayakom</h2>
                     <div class="education__data">
-                        <h3 class="education__level">Junior high school</h3>
-                        <span class="education__date">2016-2019</span>
-                        <p class="education__description">
+                        <h3 class="education__level" data-i18n="edu.skw.level2">Junior high school</h3>
+                        <span class="education__date" data-i18n="edu.skw.date2">2016-2019</span>
+                        <p class="education__description" data-i18n="edu.skw.desc2">
                             General basic subjects such as Science, Mathematics, English, Social studies, etc.
                         </p>
                     </div>
                 </article>
-
             </div>
         </section>
 
         <!--========Contact========-->
-
         <section class="contact section" id="contact">
-            <h2 class="section__title">CONTACT ME</h2>
+            <h2 class="section__title" data-i18n="contact.title">CONTACT ME</h2>
 
             <div class="contact__container container grid">
                 <form action="" class="contact__form grid" id="contact-form">
                     <div class="contact__group grid">
-                        <input type="text" name="user_name" placeholder="Name" required class="contact__input">
-                        <input type="email" name="user_email" placeholder="Email" required class="contact__input">
+                        <input type="text" name="user_name" class="contact__input" placeholder="Name"
+                            data-i18n-attr="placeholder:contact.namePlaceholder" />
+                        <input type="email" name="user_email" class="contact__input" placeholder="Email"
+                            data-i18n-attr="placeholder:contact.emailPlaceholder" />
                     </div>
 
-                    <textarea name="user_message" placeholder="Message" class="contact__input contact__area"></textarea>
+                    <textarea name="user_message" class="contact__input contact__area" placeholder="Message"
+                        data-i18n-attr="placeholder:contact.msgPlaceholder"></textarea>
 
-                    <button type="submit" class="button contact__button">Send Message</button>
+                    <button type="submit" class="button contact__button" data-i18n="contact.send">Send Message</button>
                     <div id="contact-message"></div>
                 </form>
             </div>
@@ -404,43 +413,46 @@
     <footer class="footer">
         <div class="footer__container container grid">
             <div class="footer__content grid">
-                <a href="#" class="footer__logo">Kanyawee</a>
+                <a href="#" class="footer__logo" data-i18n="footer.brand">Kanyawee</a>
 
                 <ul class="footer__links">
                     <li>
-                        <a href="#home" class="footer__link" title="Home">Home</a>
+                        <a href="#home" class="footer__link" data-i18n="footer.home"
+                            data-i18n-attr="title:nav.homeTitle" title="Home">Home</a>
                     </li>
-
                     <li>
-                        <a href="#projects" class="footer__link" title="Projects">Projects</a>
+                        <a href="#projects" class="footer__link" data-i18n="footer.projects"
+                            data-i18n-attr="title:nav.projectTitle" title="Projects">Projects</a>
                     </li>
-
                     <li>
-                        <a href="#education" class="footer__link" title="Education">Education</a>
+                        <a href="#education" class="footer__link" data-i18n="footer.education"
+                            data-i18n-attr="title:nav.educationTitle" title="Education">Education</a>
                     </li>
                 </ul>
             </div>
+
             <div class="footer__social">
-                <a href="http://discordapp.com/users/923146860078694462" target="_blank" rel="noopener" title="Discord Profile" class="footer__social-link">
+                <a href="http://discordapp.com/users/923146860078694462" target="_blank" rel="noopener"
+                    class="footer__social-link" data-i18n-attr="title:footer.discordTitle" title="Discord Profile">
                     <i class="ri-discord-line"></i>
                 </a>
 
-                <a href="https://line.me/ti/p/IMJyOGQuPf" target="_blank" rel="noopener" title="Line Profile" class="footer__social-link">
+                <a href="https://line.me/ti/p/IMJyOGQuPf" target="_blank" rel="noopener" class="footer__social-link"
+                    data-i18n-attr="title:footer.lineTitle" title="Line Profile">
                     <i class="ri-line-line"></i>
                 </a>
             </div>
         </div>
 
-        <span class="footer__copy">
+        <span class="footer__copy" data-i18n="footer.copy">
             &copy; 2024 Kanyawee. All right reserved.
         </span>
     </footer>
 
     <!--========Scroll up========-->
-    <a href="" class="scrollup" id="scroll-up" title="Scroll to top">
+    <a href="" class="scrollup" id="scroll-up" data-i18n-attr="title:ui.scrollTop" title="Scroll to top">
         <i class="ri-arrow-up-line"></i>
     </a>
-
 
     <!--========Scrollreveal========-->
     <script src=""></script>
