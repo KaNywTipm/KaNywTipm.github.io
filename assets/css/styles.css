@@ -261,7 +261,9 @@ img {
 }
 
 .info .button {
-    width: 100%;
+    width: 240px;
+    justify-self: center;
+    align-self: center;
 }
 
 /*===== ABOUT =====*/
@@ -300,18 +302,20 @@ img {
     height: 180px;
     border-radius: 2rem;
     display: grid;
+    margin-block: 1.5rem;
     overflow: hidden;
 }
 
 .about__img {
-    width: 250px;
+    width: 200px;
     justify-self: center;
-    transform: translateY(-2.5rem);
+    align-self: center;
+    border-radius: 1rem;
 }
 
 .about__note {
     font-size: var(--small-font-size);
-    margin-block: 1rem 2rem;
+    margin-bottom: 2rem;
 }
 
 .about .button {

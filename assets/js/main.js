@@ -92,7 +92,7 @@ const I18N_DICT = {
             "home.btnEducation": "Education",
             "home.tagline":
                   "Passionate about creating and designing websites with the best engaging interfaces.",
-            "home.download": "Download CV",
+            "home.download": "Download Resume",
 
             "about.displayName": "Kaywee Tipmod",
             "about.role": "Student Software Enginearing",
@@ -101,7 +101,9 @@ const I18N_DICT = {
             "about.githubTitle": "GitHub Profile",
             "about.facebookTitle": "Facebook Profile",
             "about.instagramTitle": "Instagram Profile",
-            "about.note":
+            "about.note1":
+                  "I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills.",
+            "about.note2":
                   "If you are interested, please contact me via my personal email. I will respond as soon as possible.",
             "about.contactBtn": "Contact Me",
 
@@ -171,6 +173,7 @@ const I18N_DICT = {
             "footer.copy": "© 2024 Kanyawee. All right reserved.",
             "footer.discordTitle": "Discord Profile",
             "footer.lineTitle": "Line Profile",
+            "footer.phoneTitle": "Call me 0932284976",
 
             "ui.scrollTop": "Scroll to top",
 
@@ -232,7 +235,7 @@ const I18N_DICT = {
 
             "proj.karuphan.name": "Karuphan-Hospital (กำลังพัฒนา)",
             "proj.karuphan.desc":
-                  "โครงงานจบสำหรับหน่วย PCU โรงพยาบาลคีรีมาศ จัดการครุภัณฑ์และสต็อกให้ใช้งานง่ายด้วยส่วนหน้า/หลังบ้านที่แข็งแรง",
+                  "โปรเจคสอบจบ(กรณีศึกษา)สำหรับกลุ่มงานบริการด้านปฐมภูมิและองค์รวม โรงพยาบาลคีรีมาศ จังหวัดสุโขทัย จัดการครุภัณฑ์และการยืมคืนให้ใช้งานง่ายบนเว็บไซต์ ทดแทนการจดบันทึกลงกระดาษแบบเดิม",
 
             "proj.profile.name": "Profile Website (อัปเดตต่อเนื่อง)",
             "proj.profile.desc":
@@ -268,6 +271,7 @@ const I18N_DICT = {
             "footer.copy": "© 2024 กัญญาวีร์ สงวนลิขสิทธิ์",
             "footer.discordTitle": "โปรไฟล์ Discord",
             "footer.lineTitle": "โปรไฟล์ Line",
+            "footer.phoneTitle": "โทรหาฉัน 0932284976",
 
             "ui.scrollTop": "เลื่อนขึ้นด้านบน",
 
