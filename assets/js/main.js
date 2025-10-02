@@ -1,49 +1,49 @@
 /*========== Email JS ===========*/
 const contactForm = document.getElementById("contact-form"),
-      contactMessage = document.getElementById("contact-message");
+  contactMessage = document.getElementById("contact-message");
 
 const sendEmail = (e) => {
-      e.preventDefault();
+  e.preventDefault();
 
-      // serverID - templateID - #form - publicKey
-      emailjs
-            .sendForm(
-                  "service_mh5st14",
-                  "template_6n3z29f",
-                  "#contact-form",
-                  "y-5ed3UhrRkRhisUV"
-            )
-            .then(
-                  () => {
-                        const ok =
-                              (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.success) ||
-                              "Message sent successfully ✅ i'll get back to you soon";
-                        contactMessage.textContent = ok;
-                        setTimeout(() => {
-                              contactMessage.textContent = "";
-                        }, 5000);
-                        contactForm.reset();
-                  },
-                  () => {
-                        const err =
-                              (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.error) ||
-                              "Error message ❌ please try again";
-                        contactMessage.textContent = err;
-                  }
-            );
+  // serverID - templateID - #form - publicKey
+  emailjs
+    .sendForm(
+      "service_mh5st14",
+      "template_6n3z29f",
+      "#contact-form",
+      "y-5ed3UhrRkRhisUV"
+    )
+    .then(
+      () => {
+        const ok =
+          (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.success) ||
+          "Message sent successfully ✅ i'll get back to you soon";
+        contactMessage.textContent = ok;
+        setTimeout(() => {
+          contactMessage.textContent = "";
+        }, 5000);
+        contactForm.reset();
+      },
+      () => {
+        const err =
+          (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.error) ||
+          "Error message ❌ please try again";
+        contactMessage.textContent = err;
+      }
+    );
 };
 
 if (contactForm) {
-      contactForm.addEventListener("submit", sendEmail);
+  contactForm.addEventListener("submit", sendEmail);
 }
 
 /*========== Show scroll up ===========*/
 const scrollup = () => {
-      const scrollUp = document.getElementById("scroll-up");
-      if (!scrollUp) return;
-      window.scrollY >= 350
-            ? scrollUp.classList.add("show-scroll")
-            : scrollUp.classList.remove("show-scroll");
+  const scrollUp = document.getElementById("scroll-up");
+  if (!scrollUp) return;
+  window.scrollY >= 350
+    ? scrollUp.classList.add("show-scroll")
+    : scrollUp.classList.remove("show-scroll");
 };
 window.addEventListener("scroll", scrollup);
 
@@ -51,298 +51,321 @@ window.addEventListener("scroll", scrollup);
 const sections = document.querySelectorAll("section[id]");
 
 const scrollActive = () => {
-      const scrollDown = window.scrollY;
+  const scrollDown = window.scrollY;
 
-      sections.forEach((current) => {
-            const sectionHeight = current.offsetHeight,
-                  sectionTop = current.offsetTop - 58,
-                  sectionId = current.getAttribute("id"),
-                  sectionsClass = document.querySelector(
-                        ".nav__list a[href*=" + sectionId + "]"
-                  );
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 58,
+      sectionId = current.getAttribute("id"),
+      sectionsClass = document.querySelector(
+        ".nav__list a[href*=" + sectionId + "]"
+      );
 
-            if (!sectionsClass) return;
+    if (!sectionsClass) return;
 
-            if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
-                  sectionsClass.classList.add("active-link");
-            } else {
-                  sectionsClass.classList.remove("active-link");
-            }
-      });
+    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+      sectionsClass.classList.add("active-link");
+    } else {
+      sectionsClass.classList.remove("active-link");
+    }
+  });
 };
 window.addEventListener("scroll", scrollActive);
+
+/*========== Download Dropdown ===========*/
+const downloadDropdown = document.querySelector(".download-dropdown");
+const downloadBtn = document.querySelector(".download-btn");
+
+if (downloadBtn && downloadDropdown) {
+  downloadBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    downloadDropdown.classList.toggle("active");
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!downloadDropdown.contains(e.target)) {
+      downloadDropdown.classList.remove("active");
+    }
+  });
+}
 
 /*========== Scroll reveal animation ===========*/
 // (คุณสามารถใส่ Library/โค้ดเพิ่มเติมตรงนี้ได้ภายหลัง)
 
 /* ========== i18n Toggle (EN/TH) ========== */
 const I18N_DICT = {
-      en: {
-            "meta.title": "Profile Website",
+  en: {
+    "meta.title": "Profile Website",
 
-            "nav.homeTitle": "Home",
-            "nav.projectTitle": "Project",
-            "nav.educationTitle": "Education",
-            "nav.contactTitle": "Contact",
-            "nav.translateTitle": "Translate / แปล",
+    "nav.homeTitle": "Home",
+    "nav.projectTitle": "Project",
+    "nav.educationTitle": "Education",
+    "nav.contactTitle": "Contact",
+    "nav.translateTitle": "Translate / แปล",
 
-            "home.name": "Kanyawee \n Tipmod",
-            "home.shortName": "Kanyawee(Nghin)",
-            "home.btnProjects": "Projects",
-            "home.btnEducation": "Education",
-            "home.tagline":
-                  "Passionate about creating and designing websites with the best engaging interfaces.",
-            "home.download": "Download Resume",
+    "home.name": "Kanyawee \n Tipmod",
+    "home.shortName": "Kanyawee(Nghin)",
+    "home.btnProjects": "Projects",
+    "home.btnEducation": "Education",
+    "home.tagline":
+      "Passionate about creating and designing websites with the best engaging interfaces.",
+    "home.download": "Download Resume",
 
-            "about.displayName": "Kaywee Tipmod",
-            "about.role": "Student Software Enginearing",
-            "about.desc":
-                  "Located in Phayao, Thailand. I am a student at the Faculty of Information Technology, University of Phayao. I am currently studying in the field of Software Engineering.I am also interested in learning new things and developing my skills.",
-            "about.githubTitle": "GitHub Profile",
-            "about.facebookTitle": "Facebook Profile",
-            "about.instagramTitle": "Instagram Profile",
-            "about.note1":
-                  "I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills.",
-            "about.note2":
-                  "If you are interested, please contact me via my personal email. I will respond as soon as possible.",
-            "about.contactBtn": "Contact Me",
+    "download.resume": "Resume",
+    "download.transcript": "Transcript",
 
-            "skills.title": "Skills",
-            "skills.note":
-                  "Visit the project section to see the work done with these web technologies.",
+    "about.displayName": "Kaywee Tipmod",
+    "about.role": "Student Software Enginearing",
+    "about.desc":
+      "Located in Phayao, Thailand. I am a student at the Faculty of Information Technology, University of Phayao. I am currently studying in the field of Software Engineering.I am also interested in learning new things and developing my skills.",
+    "about.githubTitle": "GitHub Profile",
+    "about.facebookTitle": "Facebook Profile",
+    "about.instagramTitle": "Instagram Profile",
+    "about.note1":
+      "I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills.",
+    "about.note2":
+      "If you are interested, please contact me via my personal email. I will respond as soon as possible.",
+    "about.contactBtn": "Contact Me",
 
-            "projects.title": "RECENT PROJECTS",
+    "skills.title": "Skills",
+    "skills.note":
+      "Visit the project section to see the work done with these web technologies.",
 
-            "proj.visitTitle": "Visit Project",
-            "proj.visit": "Visit Project",
+    "projects.title": "RECENT PROJECTS",
 
-            "proj.hamtarot.name": "HAMTAROT",
-            "proj.hamtarot.desc":
-                  "A project during my first year of study about a website for fortune telling about daily life, studying, love, finance, and work. It is a simple website that can be used to tell fortunes using tarot cards.",
+    "proj.visitTitle": "Visit Project",
+    "proj.visit": "Visit Project",
 
-            "proj.mixit.name": "MIXIT",
-            "proj.mixit.desc":
-                  "A project during my second year of study about a website that combines games in a community format to talk about games that interest me or ask questions.",
+    "proj.hamtarot.name": "HAMTAROT",
+    "proj.hamtarot.desc":
+      "A project during my first year of study about a website for fortune telling about daily life, studying, love, finance, and work. It is a simple website that can be used to tell fortunes using tarot cards.",
 
-            "proj.atbank.name": "ATBANK",
-            "proj.atbank.desc":
-                  "Mini project in the second year of study about a website made using Java by Netbean about a rough banking system such as deposits, transfers, etc.",
+    "proj.mixit.name": "MIXIT",
+    "proj.mixit.desc":
+      "A project during my second year of study about a website that combines games in a community format to talk about games that interest me or ask questions.",
 
-            "proj.schooldash.name": "School-Dashboard",
-            "proj.schooldash.desc":
-                  "Full-stack dashboard web app built using React, TypeScript, Next.js, and PostgreSQL. Featured advanced UI/UX, cloud-based media handling, form validation, and secure authentication. Designed for real-world demonstration during the university Open House.",
+    "proj.atbank.name": "ATBANK",
+    "proj.atbank.desc":
+      "Mini project in the second year of study about a website made using Java by Netbean about a rough banking system such as deposits, transfers, etc.",
 
-            "proj.karuphan.name": "Karuphan-Hospital(Under development)",
-            "proj.karuphan.desc":
-                  "This project is a final-year capstone system developed for the Primary and Holistic Care Unit (PCU) at Kiri Mat Hospital. It aims to streamline the management of hospital assets and inventory with an intuitive interface and a robust backend system.",
+    "proj.schooldash.name": "School-Dashboard",
+    "proj.schooldash.desc":
+      "Full-stack dashboard web app built using React, TypeScript, Next.js, and PostgreSQL. Featured advanced UI/UX, cloud-based media handling, form validation, and secure authentication. Designed for real-world demonstration during the university Open House.",
 
-            "proj.profile.name": "Profile Website(Keep updating)",
-            "proj.profile.desc":
-                  "This portfolio website is a personal project created to showcase the various software development projects I have worked on during my academic journey. Built entirely with HTML, CSS, and JavaScript, it demonstrates my ability to develop clean, responsive, and interactive web interfaces.",
+    "proj.karuphan.name": "Karuphan-Hospital(Under development)",
+    "proj.karuphan.desc":
+      "This project is a final-year capstone system developed for the Primary and Holistic Care Unit (PCU) at Kiri Mat Hospital. It aims to streamline the management of hospital assets and inventory with an intuitive interface and a robust backend system.",
 
-            "education.title": "EDUCATION",
+    "proj.profile.name": "Profile Website(Keep updating)",
+    "proj.profile.desc":
+      "This portfolio website is a personal project created to showcase the various software development projects I have worked on during my academic journey. Built entirely with HTML, CSS, and JavaScript, it demonstrates my ability to develop clean, responsive, and interactive web interfaces.",
 
-            "edu.up.name": "University of Phayao",
-            "edu.up.level": "Bachelor's degree",
-            "edu.up.date": "2022-current",
-            "edu.up.desc":
-                  "Studying in the software engineering field, related to web application development, UX/UI design, etc.",
+    "education.title": "EDUCATION",
 
-            "edu.skw.name1": "Sukhothai Wittayakom",
-            "edu.skw.level1": "High school",
-            "edu.skw.date1": "2019-2022",
-            "edu.skw.desc1":
-                  "The class is in the Science and Mathematics stream, studying Biology, Chemistry, Physics, etc.",
+    "edu.up.name": "University of Phayao",
+    "edu.up.level": "Bachelor's degree",
+    "edu.up.date": "2022-current",
+    "edu.up.desc":
+      "Studying in the software engineering field, related to web application development, UX/UI design, etc.",
 
-            "edu.skw.name2": "Sukhothai Wittayakom",
-            "edu.skw.level2": "Junior high school",
-            "edu.skw.date2": "2016-2019",
-            "edu.skw.desc2":
-                  "General basic subjects such as Science, Mathematics, English, Social studies, etc.",
+    "edu.skw.name1": "Sukhothai Wittayakom",
+    "edu.skw.level1": "High school",
+    "edu.skw.date1": "2019-2022",
+    "edu.skw.desc1":
+      "The class is in the Science and Mathematics stream, studying Biology, Chemistry, Physics, etc.",
 
-            "contact.title": "CONTACT ME",
-            "contact.namePlaceholder": "Name",
-            "contact.emailPlaceholder": "Email",
-            "contact.msgPlaceholder": "Message",
-            "contact.send": "Send Message",
+    "edu.skw.name2": "Sukhothai Wittayakom",
+    "edu.skw.level2": "Junior high school",
+    "edu.skw.date2": "2016-2019",
+    "edu.skw.desc2":
+      "General basic subjects such as Science, Mathematics, English, Social studies, etc.",
 
-            "footer.brand": "Kanyawee",
-            "footer.home": "Home",
-            "footer.projects": "Projects",
-            "footer.education": "Education",
-            "footer.copy": "© 2024 Kanyawee. All right reserved.",
-            "footer.discordTitle": "Discord Profile",
-            "footer.lineTitle": "Line Profile",
-            "footer.phoneTitle": "Call me 0932284976",
+    "contact.title": "CONTACT ME",
+    "contact.namePlaceholder": "Name",
+    "contact.emailPlaceholder": "Email",
+    "contact.msgPlaceholder": "Message",
+    "contact.send": "Send Message",
 
-            "ui.scrollTop": "Scroll to top",
+    "footer.brand": "Kanyawee",
+    "footer.home": "Home",
+    "footer.projects": "Projects",
+    "footer.education": "Education",
+    "footer.copy": "© 2024 Kanyawee. All right reserved.",
+    "footer.discordTitle": "Discord Profile",
+    "footer.lineTitle": "Line Profile",
+    "footer.phoneTitle": "Call me 0932284976",
 
-            "email.success": "Message sent successfully ✅ i'll get back to you soon",
-            "email.error": "Error message ❌ please try again",
-      },
+    "ui.scrollTop": "Scroll to top",
 
-      th: {
-            "meta.title": "เว็บไซต์โปรไฟล์",
+    "email.success": "Message sent successfully ✅ i'll get back to you soon",
+    "email.error": "Error message ❌ please try again",
+  },
 
-            "nav.homeTitle": "หน้าแรก",
-            "nav.projectTitle": "ผลงาน",
-            "nav.educationTitle": "การศึกษา",
-            "nav.contactTitle": "ติดต่อ",
-            "nav.translateTitle": "สลับภาษา TH/EN",
+  th: {
+    "meta.title": "เว็บไซต์โปรไฟล์",
 
-            "home.name": "กัญญาวีร์ \n ทิพโหมด",
-            "home.shortName": "กัญญาวีร์(หงิญ)",
-            "home.btnProjects": "ผลงาน",
-            "home.btnEducation": "การศึกษา",
-            "home.tagline":
-                  "หลงใหลในการสร้างและออกแบบเว็บไซต์ที่ใช้งานง่ายและดึงดูดผู้ใช้",
-            "home.download": "ดาวน์โหลดเรซูเม่",
+    "nav.homeTitle": "หน้าแรก",
+    "nav.projectTitle": "ผลงาน",
+    "nav.educationTitle": "การศึกษา",
+    "nav.contactTitle": "ติดต่อ",
+    "nav.translateTitle": "สลับภาษา TH/EN",
 
-            "about.displayName": "กัญญาวีร์ ทิพโหมด (Kaywee)",
-            "about.role": "นักศึกษาวิศวกรรมซอฟต์แวร์",
-            "about.desc":
-                  "อยู่ที่จังหวัดพะเยา ประเทศไทย เป็นนักศึกษาคณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยพะเยา กำลังศึกษาในสาขาวิศวกรรมซอฟต์แวร์ และสนใจเรียนรู้สิ่งใหม่ ๆ เพื่อพัฒนาทักษะของตนเอง",
-            "about.githubTitle": "โปรไฟล์ GitHub",
-            "about.facebookTitle": "โปรไฟล์ Facebook",
-            "about.instagramTitle": "โปรไฟล์ Instagram",
-            "about.note":
-                  "หากสนใจติดต่อได้ทางอีเมลส่วนตัว จะตอบกลับโดยเร็วที่สุด",
-            "about.contactBtn": "ติดต่อฉัน",
+    "home.name": "กัญญาวีร์ \n ทิพโหมด",
+    "home.shortName": "กัญญาวีร์(หงิญ)",
+    "home.btnProjects": "ผลงาน",
+    "home.btnEducation": "การศึกษา",
+    "home.tagline":
+      "หลงใหลในการสร้างและออกแบบเว็บไซต์ที่ใช้งานง่ายและดึงดูดผู้ใช้",
+    "home.download": "ดาวน์โหลดเรซูเม่",
 
-            "skills.title": "ทักษะ",
-            "skills.note": "ไปที่ส่วนผลงานเพื่อดูงานที่ทำด้วยเทคโนโลยีเว็บเหล่านี้",
+    "download.resume": "เรซูเม่",
+    "download.transcript": "ใบแสดงผลการศึกษา",
 
-            "projects.title": "ผลงานล่าสุด",
+    "about.displayName": "กัญญาวีร์ ทิพโหมด (Kaywee)",
+    "about.role": "นักศึกษาวิศวกรรมซอฟต์แวร์",
+    "about.desc":
+      "อยู่ที่จังหวัดพะเยา ประเทศไทย เป็นนักศึกษาคณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยพะเยา กำลังศึกษาในสาขาวิศวกรรมซอฟต์แวร์ และสนใจเรียนรู้สิ่งใหม่ ๆ เพื่อพัฒนาทักษะของตนเอง",
+    "about.githubTitle": "โปรไฟล์ GitHub",
+    "about.facebookTitle": "โปรไฟล์ Facebook",
+    "about.instagramTitle": "โปรไฟล์ Instagram",
+    "about.note": "หากสนใจติดต่อได้ทางอีเมลส่วนตัว จะตอบกลับโดยเร็วที่สุด",
+    "about.contactBtn": "ติดต่อฉัน",
 
-            "proj.visitTitle": "ไปที่โปรเจกต์",
-            "proj.visit": "ไปที่โปรเจกต์",
+    "skills.title": "ทักษะ",
+    "skills.note": "ไปที่ส่วนผลงานเพื่อดูงานที่ทำด้วยเทคโนโลยีเว็บเหล่านี้",
 
-            "proj.hamtarot.name": "HAMTAROT",
-            "proj.hamtarot.desc":
-                  "โปรเจกต์ช่วงปี 1 เว็บไซต์ดูดวงด้านชีวิตประจำวัน การเรียน ความรัก การเงิน และงาน ใช้ไพ่ทาโรต์ในการทำนาย ใช้งานง่าย",
+    "projects.title": "ผลงานล่าสุด",
 
-            "proj.mixit.name": "MIXIT",
-            "proj.mixit.desc":
-                  "โปรเจกต์ช่วงปี 2 เว็บไซต์ชุมชนรวมเกมสำหรับแลกเปลี่ยนพูดคุย ถาม-ตอบเรื่องเกมที่สนใจ",
+    "proj.visitTitle": "ไปที่โปรเจกต์",
+    "proj.visit": "ไปที่โปรเจกต์",
 
-            "proj.atbank.name": "ATBANK",
-            "proj.atbank.desc":
-                  "มินิโปรเจกต์ปี 2 ระบบธนาคารอย่างง่าย พัฒนาใน Java (NetBeans) มีฝาก-โอน ฯลฯ",
+    "proj.hamtarot.name": "HAMTAROT",
+    "proj.hamtarot.desc":
+      "โปรเจกต์ช่วงปี 1 เว็บไซต์ดูดวงด้านชีวิตประจำวัน การเรียน ความรัก การเงิน และงาน ใช้ไพ่ทาโรต์ในการทำนาย ใช้งานง่าย",
 
-            "proj.schooldash.name": "School-Dashboard",
-            "proj.schooldash.desc":
-                  "เว็บแอปแดชบอร์ดฟูลสแต็กด้วย React, TypeScript, Next.js, PostgreSQL มี UI/UX ขั้นสูง อัปโหลดสื่อ, ตรวจฟอร์ม, ยืนยันตัวตน ปรับใช้สำหรับสาธิตในงาน Open House",
+    "proj.mixit.name": "MIXIT",
+    "proj.mixit.desc":
+      "โปรเจกต์ช่วงปี 2 เว็บไซต์ชุมชนรวมเกมสำหรับแลกเปลี่ยนพูดคุย ถาม-ตอบเรื่องเกมที่สนใจ",
 
-            "proj.karuphan.name": "Karuphan-Hospital (กำลังพัฒนา)",
-            "proj.karuphan.desc":
-                  "โปรเจคสอบจบ(กรณีศึกษา)สำหรับกลุ่มงานบริการด้านปฐมภูมิและองค์รวม โรงพยาบาลคีรีมาศ จังหวัดสุโขทัย จัดการครุภัณฑ์และการยืมคืนให้ใช้งานง่ายบนเว็บไซต์ ทดแทนการจดบันทึกลงกระดาษแบบเดิม",
+    "proj.atbank.name": "ATBANK",
+    "proj.atbank.desc":
+      "มินิโปรเจกต์ปี 2 ระบบธนาคารอย่างง่าย พัฒนาใน Java (NetBeans) มีฝาก-โอน ฯลฯ",
 
-            "proj.profile.name": "Profile Website (อัปเดตต่อเนื่อง)",
-            "proj.profile.desc":
-                  "เว็บไซต์พอร์ตโฟลิโอเพื่อแสดงผลงานพัฒนาซอฟต์แวร์ระหว่างเรียน พัฒนาด้วย HTML, CSS, JavaScript โชว์การทำเว็บที่สะอาด ตอบสนอง และโต้ตอบได้ดี",
+    "proj.schooldash.name": "School-Dashboard",
+    "proj.schooldash.desc":
+      "เว็บแอปแดชบอร์ดฟูลสแต็กด้วย React, TypeScript, Next.js, PostgreSQL มี UI/UX ขั้นสูง อัปโหลดสื่อ, ตรวจฟอร์ม, ยืนยันตัวตน ปรับใช้สำหรับสาธิตในงาน Open House",
 
-            "education.title": "การศึกษา",
+    "proj.karuphan.name": "Karuphan-Hospital (กำลังพัฒนา)",
+    "proj.karuphan.desc":
+      "โปรเจคสอบจบ(กรณีศึกษา)สำหรับกลุ่มงานบริการด้านปฐมภูมิและองค์รวม โรงพยาบาลคีรีมาศ จังหวัดสุโขทัย จัดการครุภัณฑ์และการยืมคืนให้ใช้งานง่ายบนเว็บไซต์ ทดแทนการจดบันทึกลงกระดาษแบบเดิม",
 
-            "edu.up.name": "มหาวิทยาลัยพะเยา",
-            "edu.up.level": "ปริญญาตรี",
-            "edu.up.date": "2022–ปัจจุบัน",
-            "edu.up.desc": "ศึกษาด้านวิศวกรรมซอฟต์แวร์ พัฒนาเว็บแอป UX/UI และอื่น ๆ",
+    "proj.profile.name": "Profile Website (อัปเดตต่อเนื่อง)",
+    "proj.profile.desc":
+      "เว็บไซต์พอร์ตโฟลิโอเพื่อแสดงผลงานพัฒนาซอฟต์แวร์ระหว่างเรียน พัฒนาด้วย HTML, CSS, JavaScript โชว์การทำเว็บที่สะอาด ตอบสนอง และโต้ตอบได้ดี",
 
-            "edu.skw.name1": "โรงเรียนสุโขทัยวิทยาคม",
-            "edu.skw.level1": "มัธยมปลาย",
-            "edu.skw.date1": "2019–2022",
-            "edu.skw.desc1": "สายวิทย์-คณิต เรียน ชีววิทยา เคมี ฟิสิกส์ เป็นต้น",
+    "education.title": "การศึกษา",
 
-            "edu.skw.name2": "โรงเรียนสุโขทัยวิทยาคม",
-            "edu.skw.level2": "มัธยมต้น",
-            "edu.skw.date2": "2016–2019",
-            "edu.skw.desc2": "วิชาพื้นฐานทั่วไป เช่น วิทย์ คณิต อังกฤษ สังคม",
+    "edu.up.name": "มหาวิทยาลัยพะเยา",
+    "edu.up.level": "ปริญญาตรี",
+    "edu.up.date": "2022–ปัจจุบัน",
+    "edu.up.desc": "ศึกษาด้านวิศวกรรมซอฟต์แวร์ พัฒนาเว็บแอป UX/UI และอื่น ๆ",
 
-            "contact.title": "ติดต่อฉัน",
-            "contact.namePlaceholder": "ชื่อ",
-            "contact.emailPlaceholder": "อีเมล",
-            "contact.msgPlaceholder": "ข้อความ",
-            "contact.send": "ส่งข้อความ",
+    "edu.skw.name1": "โรงเรียนสุโขทัยวิทยาคม",
+    "edu.skw.level1": "มัธยมปลาย",
+    "edu.skw.date1": "2019–2022",
+    "edu.skw.desc1": "สายวิทย์-คณิต เรียน ชีววิทยา เคมี ฟิสิกส์ เป็นต้น",
 
-            "footer.brand": "กัญญาวีร์",
-            "footer.home": "หน้าแรก",
-            "footer.projects": "ผลงาน",
-            "footer.education": "การศึกษา",
-            "footer.copy": "© 2024 กัญญาวีร์ สงวนลิขสิทธิ์",
-            "footer.discordTitle": "โปรไฟล์ Discord",
-            "footer.lineTitle": "โปรไฟล์ Line",
-            "footer.phoneTitle": "โทรหาฉัน 0932284976",
+    "edu.skw.name2": "โรงเรียนสุโขทัยวิทยาคม",
+    "edu.skw.level2": "มัธยมต้น",
+    "edu.skw.date2": "2016–2019",
+    "edu.skw.desc2": "วิชาพื้นฐานทั่วไป เช่น วิทย์ คณิต อังกฤษ สังคม",
 
-            "ui.scrollTop": "เลื่อนขึ้นด้านบน",
+    "contact.title": "ติดต่อฉัน",
+    "contact.namePlaceholder": "ชื่อ",
+    "contact.emailPlaceholder": "อีเมล",
+    "contact.msgPlaceholder": "ข้อความ",
+    "contact.send": "ส่งข้อความ",
 
-            "email.success": "ส่งข้อความสำเร็จ ✅ จะตอบกลับโดยเร็ว",
-            "email.error": "เกิดข้อผิดพลาด ❌ กรุณาลองใหม่อีกครั้ง",
-      },
+    "footer.brand": "กัญญาวีร์",
+    "footer.home": "หน้าแรก",
+    "footer.projects": "ผลงาน",
+    "footer.education": "การศึกษา",
+    "footer.copy": "© 2024 กัญญาวีร์ สงวนลิขสิทธิ์",
+    "footer.discordTitle": "โปรไฟล์ Discord",
+    "footer.lineTitle": "โปรไฟล์ Line",
+    "footer.phoneTitle": "โทรหาฉัน 0932284976",
+
+    "ui.scrollTop": "เลื่อนขึ้นด้านบน",
+
+    "email.success": "ส่งข้อความสำเร็จ ✅ จะตอบกลับโดยเร็ว",
+    "email.error": "เกิดข้อผิดพลาด ❌ กรุณาลองใหม่อีกครั้ง",
+  },
 };
 
 function applyLang(lang) {
-      // ตั้งค่า lang ใน <html>
-      document.documentElement.lang = lang === "th" ? "th" : "en";
+  // ตั้งค่า lang ใน <html>
+  document.documentElement.lang = lang === "th" ? "th" : "en";
 
-      // ข้อความปกติ
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-            const key = el.getAttribute("data-i18n");
-            const text = I18N_DICT[lang][key];
-            if (typeof text === "string") {
-                  // รองรับขึ้นบรรทัดใหม่ด้วย \n
-                  el.textContent = "";
-                  text.split("\n").forEach((line, i) => {
-                        if (i) el.appendChild(document.createElement("br"));
-                        el.appendChild(document.createTextNode(line));
-                  });
-            }
+  // ข้อความปกติ
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const text = I18N_DICT[lang][key];
+    if (typeof text === "string") {
+      // รองรับขึ้นบรรทัดใหม่ด้วย \n
+      el.textContent = "";
+      text.split("\n").forEach((line, i) => {
+        if (i) el.appendChild(document.createElement("br"));
+        el.appendChild(document.createTextNode(line));
       });
+    }
+  });
 
-      // แปล attributes เช่น title, placeholder, href, src
-      document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
-            const mapping = el
-                  .getAttribute("data-i18n-attr")
-                  .split(",")
-                  .map((s) => s.trim()); // e.g. ["placeholder:contact.namePlaceholder","title:..."]
+  // แปล attributes เช่น title, placeholder, href, src
+  document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+    const mapping = el
+      .getAttribute("data-i18n-attr")
+      .split(",")
+      .map((s) => s.trim()); // e.g. ["placeholder:contact.namePlaceholder","title:..."]
 
-            mapping.forEach((pair) => {
-                  const [attr, key] = pair.split(":").map((s) => s.trim());
-                  const val = I18N_DICT[lang][key];
-                  if (val != null) el.setAttribute(attr, val);
-            });
-      });
+    mapping.forEach((pair) => {
+      const [attr, key] = pair.split(":").map((s) => s.trim());
+      const val = I18N_DICT[lang][key];
+      if (val != null) el.setAttribute(attr, val);
+    });
+  });
 
-      // ผูกข้อความผลลัพธ์ EmailJS
-      window.__EMAIL_I18N__ = {
-            success: I18N_DICT[lang]["email.success"],
-            error: I18N_DICT[lang]["email.error"],
-      };
+  // ผูกข้อความผลลัพธ์ EmailJS
+  window.__EMAIL_I18N__ = {
+    success: I18N_DICT[lang]["email.success"],
+    error: I18N_DICT[lang]["email.error"],
+  };
 
-      // จำภาษา
-      localStorage.setItem("lang", lang);
+  // จำภาษา
+  localStorage.setItem("lang", lang);
 }
 
 // สลับภาษาเมื่อกดปุ่ม
 const langToggleBtn = document.getElementById("lang-toggle");
 if (langToggleBtn) {
-      langToggleBtn.addEventListener("click", () => {
-            const saved = localStorage.getItem("lang");
-            const browserPref = (navigator.language || "")
-                  .toLowerCase()
-                  .startsWith("th")
-                  ? "th"
-                  : "en";
-            const current = saved || browserPref;
-            const next = current === "th" ? "en" : "th";
-            applyLang(next);
-      });
+  langToggleBtn.addEventListener("click", () => {
+    const saved = localStorage.getItem("lang");
+    const browserPref = (navigator.language || "")
+      .toLowerCase()
+      .startsWith("th")
+      ? "th"
+      : "en";
+    const current = saved || browserPref;
+    const next = current === "th" ? "en" : "th";
+    applyLang(next);
+  });
 }
 
 // โหลดภาษาที่เคยเลือกไว้ หรือเดาตามเบราว์เซอร์ครั้งแรก
 (function initLang() {
-      const saved = localStorage.getItem("lang");
-      const initial =
-            saved ||
-            ((navigator.language || "").toLowerCase().startsWith("th") ? "th" : "en");
-      applyLang(initial);
+  const saved = localStorage.getItem("lang");
+  const initial =
+    saved ||
+    ((navigator.language || "").toLowerCase().startsWith("th") ? "th" : "en");
+  applyLang(initial);
 })();

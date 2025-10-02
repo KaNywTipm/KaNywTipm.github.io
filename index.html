@@ -86,8 +86,17 @@
                         Passionate about creating and designing websites with the best engaging interfaces.
                     </p>
 
-                    <a href="assets/pdf" download target="button"
-                        class="button button__black" data-i18n="home.download">Download Resume</a>
+                    <div class="download-dropdown">
+                        <button class="button button__black download-btn" data-i18n="home.download">Download Resume
+                            <i class="ri-arrow-down-s-line"></i>
+                        </button>
+                        <div class="download-menu">
+                            <a href="assets/pdf/resume.pdf" download class="download-item"
+                                data-i18n="download.resume">Resume</a>
+                            <a href="assets/pdf/transcript.pdf" download class="download-item"
+                                data-i18n="download.transcript">Transcript</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!--========ABOUT========-->
@@ -122,11 +131,12 @@
                     </div>
 
                     <div class="about__image">
-                        <img src="assets/img/Homepic-Photoroom.png" alt="image" class="about__img" />
+                        <img src="assets/img/cofee.gif" alt="image" class="about__img" />
                     </div>
 
                     <p class="about__note1" data-i18n="about.note">
-                        I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills.
+                        I believe that hands-on experience in a professional environment also enhance my teamwork and
+                        communication skills.
                         If you are interested, please contact me. I will respond as soon aspossible.
                     </p>
 

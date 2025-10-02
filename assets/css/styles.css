@@ -368,6 +368,64 @@ img {
     background-color: var(--first-color-alt);
 }
 
+/*=============== DOWNLOAD DROPDOWN ===============*/
+.download-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    border: none;
+}
+
+.download-btn i {
+    transition: transform 0.3s ease;
+}
+
+.download-dropdown.active .download-btn i {
+    transform: rotate(180deg);
+}
+
+.download-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: var(--z-tooltip);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.download-dropdown.active .download-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.download-item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--white-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: var(--font-medium);
+}
+
+.download-item:hover {
+    background-color: var(--first-color);
+}
+
 /*=============== PROJECTS ===============*/
 .projects__card {
     background-color: var(--container-color);
