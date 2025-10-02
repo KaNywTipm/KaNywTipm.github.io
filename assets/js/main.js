@@ -1,76 +1,78 @@
 /*========== Email JS ===========*/
-const contactForm = document.getElementById("contact-form"),
-      contactMessage = document.getElementById("contact-message");
+$(document).ready(function () {
+      const $contactForm = $("#contact-form");
+      const $contactMessage = $("#contact-message");
 
-const sendEmail = (e) => {
-      e.preventDefault();
+      const sendEmail = (e) => {
+            e.preventDefault();
 
-      // serverID - templateID - #form - publicKey
-      emailjs
-            .sendForm(
-                  "service_mh5st14",
-                  "template_6n3z29f",
-                  "#contact-form",
-                  "y-5ed3UhrRkRhisUV"
-            )
-            .then(
-                  () => {
-                        const ok =
-                              (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.success) ||
-                              "Message sent successfully ✅ i'll get back to you soon";
-                        contactMessage.textContent = ok;
-                        setTimeout(() => {
-                              contactMessage.textContent = "";
-                        }, 5000);
-                        contactForm.reset();
-                  },
-                  () => {
-                        const err =
-                              (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.error) ||
-                              "Error message ❌ please try again";
-                        contactMessage.textContent = err;
-                  }
-            );
-};
+            // serverID - templateID - #form - publicKey
+            emailjs
+                  .sendForm(
+                        "service_mh5st14",
+                        "template_6n3z29f",
+                        "#contact-form",
+                        "y-5ed3UhrRkRhisUV"
+                  )
+                  .then(
+                        () => {
+                              const ok =
+                                    (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.success) ||
+                                    "Message sent successfully ✅ i'll get back to you soon";
+                              $contactMessage.text(ok);
+                              setTimeout(() => {
+                                    $contactMessage.text("");
+                              }, 5000);
+                              $contactForm[0].reset();
+                        },
+                        () => {
+                              const err =
+                                    (window.__EMAIL_I18N__ && window.__EMAIL_I18N__.error) ||
+                                    "Error message ❌ please try again";
+                              $contactMessage.text(err);
+                        }
+                  );
+      };
 
-if (contactForm) {
-      contactForm.addEventListener("submit", sendEmail);
-}
+      if ($contactForm.length) {
+            $contactForm.on("submit", sendEmail);
+      }
+});
 
 /*========== Show scroll up ===========*/
-const scrollup = () => {
-      const scrollUp = document.getElementById("scroll-up");
-      if (!scrollUp) return;
-      window.scrollY >= 350
-            ? scrollUp.classList.add("show-scroll")
-            : scrollUp.classList.remove("show-scroll");
-};
-window.addEventListener("scroll", scrollup);
+$(window).on("scroll", function () {
+      const $scrollUp = $("#scroll-up");
+      if ($scrollUp.length) {
+            if ($(window).scrollTop() >= 350) {
+                  $scrollUp.addClass("show-scroll");
+            } else {
+                  $scrollUp.removeClass("show-scroll");
+            }
+      }
+});
 
 /*========== Scroll section active link ===========*/
-const sections = document.querySelectorAll("section[id]");
+const $sections = $("section[id]");
 
-const scrollActive = () => {
-      const scrollDown = window.scrollY;
+$(window).on("scroll", function () {
+      const scrollDown = $(window).scrollTop();
 
-      sections.forEach((current) => {
-            const sectionHeight = current.offsetHeight,
-                  sectionTop = current.offsetTop - 58,
-                  sectionId = current.getAttribute("id"),
-                  sectionsClass = document.querySelector(
-                        ".nav__list a[href*=" + sectionId + "]"
-                  );
+      $sections.each(function () {
+            const $current = $(this);
+            const sectionHeight = $current.outerHeight();
+            const sectionTop = $current.offset().top - 58;
+            const sectionId = $current.attr("id");
+            const $sectionsClass = $(`.nav__list a[href*=${sectionId}]`);
 
-            if (!sectionsClass) return;
+            if (!$sectionsClass.length) return;
 
             if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
-                  sectionsClass.classList.add("active-link");
+                  $sectionsClass.addClass("active-link");
             } else {
-                  sectionsClass.classList.remove("active-link");
+                  $sectionsClass.removeClass("active-link");
             }
       });
-};
-window.addEventListener("scroll", scrollActive);
+});
 
 /*========== Scroll reveal animation ===========*/
 // (คุณสามารถใส่ Library/โค้ดเพิ่มเติมตรงนี้ได้ภายหลัง)
@@ -101,10 +103,8 @@ const I18N_DICT = {
             "about.githubTitle": "GitHub Profile",
             "about.facebookTitle": "Facebook Profile",
             "about.instagramTitle": "Instagram Profile",
-            "about.note1":
-                  "I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills.",
-            "about.note2":
-                  "If you are interested, please contact me via my personal email. I will respond as soon as possible.",
+            "about.note":
+                  "I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills. If you are interested, please contact me. I will respond as soon as possible.",
             "about.contactBtn": "Contact Me",
 
             "skills.title": "Skills",
@@ -206,7 +206,7 @@ const I18N_DICT = {
             "about.facebookTitle": "โปรไฟล์ Facebook",
             "about.instagramTitle": "โปรไฟล์ Instagram",
             "about.note":
-                  "หากสนใจติดต่อได้ทางอีเมลส่วนตัว จะตอบกลับโดยเร็วที่สุด",
+                  "ฉันเชื่อว่าประสบการณ์จริงในสภาพแวดล้อมมืออาชีพยังช่วยเสริมสร้างทักษะการทำงานเป็นทีมและการสื่อสารของฉัน หากสนใจติดต่อได้ทางอีเมลส่วนตัว จะตอบกลับโดยเร็วที่สุด",
             "about.contactBtn": "ติดต่อฉัน",
 
             "skills.title": "ทักษะ",
@@ -282,33 +282,36 @@ const I18N_DICT = {
 
 function applyLang(lang) {
       // ตั้งค่า lang ใน <html>
-      document.documentElement.lang = lang === "th" ? "th" : "en";
+      $("html").attr("lang", lang === "th" ? "th" : "en");
 
       // ข้อความปกติ
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-            const key = el.getAttribute("data-i18n");
+      $("[data-i18n]").each(function () {
+            const $el = $(this);
+            const key = $el.attr("data-i18n");
             const text = I18N_DICT[lang][key];
             if (typeof text === "string") {
                   // รองรับขึ้นบรรทัดใหม่ด้วย \n
-                  el.textContent = "";
-                  text.split("\n").forEach((line, i) => {
-                        if (i) el.appendChild(document.createElement("br"));
-                        el.appendChild(document.createTextNode(line));
+                  $el.empty();
+                  const lines = text.split("\n");
+                  lines.forEach((line, i) => {
+                        if (i > 0) $el.append("<br>");
+                        $el.append(document.createTextNode(line));
                   });
             }
       });
 
       // แปล attributes เช่น title, placeholder, href, src
-      document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
-            const mapping = el
-                  .getAttribute("data-i18n-attr")
+      $("[data-i18n-attr]").each(function () {
+            const $el = $(this);
+            const mapping = $el
+                  .attr("data-i18n-attr")
                   .split(",")
                   .map((s) => s.trim()); // e.g. ["placeholder:contact.namePlaceholder","title:..."]
 
             mapping.forEach((pair) => {
                   const [attr, key] = pair.split(":").map((s) => s.trim());
                   const val = I18N_DICT[lang][key];
-                  if (val != null) el.setAttribute(attr, val);
+                  if (val != null) $el.attr(attr, val);
             });
       });
 
@@ -323,26 +326,26 @@ function applyLang(lang) {
 }
 
 // สลับภาษาเมื่อกดปุ่ม
-const langToggleBtn = document.getElementById("lang-toggle");
-if (langToggleBtn) {
-      langToggleBtn.addEventListener("click", () => {
-            const saved = localStorage.getItem("lang");
-            const browserPref = (navigator.language || "")
-                  .toLowerCase()
-                  .startsWith("th")
-                  ? "th"
-                  : "en";
-            const current = saved || browserPref;
-            const next = current === "th" ? "en" : "th";
-            applyLang(next);
-      });
-}
+$(document).ready(function () {
+      const $langToggleBtn = $("#lang-toggle");
+      if ($langToggleBtn.length) {
+            $langToggleBtn.on("click", function () {
+                  const saved = localStorage.getItem("lang");
+                  const browserPref = (navigator.language || "")
+                        .toLowerCase()
+                        .startsWith("th")
+                        ? "th"
+                        : "en";
+                  const current = saved || browserPref;
+                  const next = current === "th" ? "en" : "th";
+                  applyLang(next);
+            });
+      }
 
-// โหลดภาษาที่เคยเลือกไว้ หรือเดาตามเบราว์เซอร์ครั้งแรก
-(function initLang() {
+      // โหลดภาษาที่เคยเลือกไว้ หรือเดาตามเบราว์เซอร์ครั้งแรก
       const saved = localStorage.getItem("lang");
       const initial =
             saved ||
             ((navigator.language || "").toLowerCase().startsWith("th") ? "th" : "en");
       applyLang(initial);
-})();
+});
