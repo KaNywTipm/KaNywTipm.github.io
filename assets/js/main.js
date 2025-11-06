@@ -122,9 +122,7 @@ const I18N_DICT = {
     "about.githubTitle": "GitHub Profile",
     "about.facebookTitle": "Facebook Profile",
     "about.instagramTitle": "Instagram Profile",
-    "about.note1":
-      "I believe that hands-on experience in a professional environment also enhance my teamwork and communication skills.",
-    "about.note2":
+    "about.note":
       "If you are interested, please contact me via my personal email. I will respond as soon as possible.",
     "about.contactBtn": "Contact Me",
 
